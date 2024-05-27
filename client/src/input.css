@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.typed-out{
+    overflow: hidden;
+    border-right: .15em solid orange;
+    white-space: nowrap;
+    font-size: 1.6rem;
+    width: 0;
+    animation: typing 1s forwards;
+}
+
+  .cn {
+    display: inline-block;
+  }
+
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }

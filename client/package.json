@@ -15,12 +15,14 @@
     "react-dom": "^18.2.0",
     "react-icons": "^5.1.0",
     "react-router-dom": "^6.22.3",
-    "react-toastify": "^10.0.5"
+    "react-toastify": "^10.0.5",
+    "tailwind-typewriter": "^1.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@vitejs/plugin-react-swc": "^3.5.0",
+    "daisyui": "^4.11.1",
     "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^4.6.0",
