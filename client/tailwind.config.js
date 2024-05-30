@@ -11,8 +11,8 @@ export default {
     require('tailwind-typewriter')({
       wordsets: {
           fruit: {
-              words: ['Storage.', 'Hosting.', 'Collaboration.', 'Scaffolding.', 'Projectify.'],
-              delay: 1,
+              words: ['Projectify.', 'Storage.', 'Hosting.', 'Collaboration.', 'Scaffolding.', 'Projectify.'],
+              delay: 0,
               writeSpeed: 0.15,
               repeat: 0,
               eraseSpeed: 0,
