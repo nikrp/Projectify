@@ -27,9 +27,27 @@ export default function Home() {
             <button className={`btn btn-ghost text-3xl`}>Projectify</button>
           </div>
           <div className={`navbar-center`}>
-            <ul className="menu menu-horizontal px-1">
+            <ul className="menu menu-horizontal px-1 flex items-center">
               <li className={`text-lg`}><a href={`#mission`}>Our Mission</a></li>
-              <li className={`text-lg mx-2`}><a>Services</a></li>
+              <div className="dropdown mx-auto">
+                <div tabIndex={0} className={`text-lg btn btn-ghost font-normal`}>Services</div>
+                <div className={`dropdown-content z-[1] p-4 shadow bg-base-100 rounded-box mt-2 w-[500px]`}>
+                  <table className={`table table-auto w-full`}>
+                    <tr>
+                      <td><a className={`cursor-pointer hover:underline text-gray-400 text-lg`}>Project Management</a></td>
+                      <td className={`cursor-pointer hover:underline text-gray-400 text-lg`}>Collaboration</td>
+                    </tr>
+                    <tr>
+                      <td className={`cursor-pointer hover:underline text-gray-400 text-lg`}>Storage</td>
+                      <td className={`cursor-pointer hover:underline text-gray-400 text-lg`}>Project Scaffolding</td>
+                    </tr>
+                    <tr>
+                      <td className={`cursor-pointer hover:underline text-gray-400 text-lg`}>Time Management</td>
+                      <td className={`cursor-pointer hover:underline text-gray-400 text-lg`}>Organization Control</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
               <li className={`text-lg mr-2`}><a href={`#pricing`}>Pricing</a></li>
               <li className={`text-lg`}><a href={`#contact`}>Contact</a></li>
             </ul>
@@ -61,6 +79,16 @@ export default function Home() {
         <div className={`w-11/12 p-10 rounded-xl mx-auto`}>
           <h2 className={`text-6xl font-bold mb-10 text-center`}>Our Mission</h2>
           <p className={`text-xl font-thin text-white leading-relaxed w-4/6 mx-auto tracking-wide text-center`}>At Projectify, we aim to support all JavaScript developers in their scaffolding, storing, hosting, and project management needs. Our extensive application tools allow teams to collaborate easily while acomplishing their project needs and checking statuses like a breeze.</p>
+        </div>
+      </div>
+      <div className={``} id={`pricing`}>
+        <div className={`w-11/12 p-10 rounded-xl mx-auto`}>
+          <h2 className={`text-6xl font-bold mb-10 text-center`}>Pricing</h2>
+          <div className={`p-5 flex items-center justify-between`}>
+            <div className={`w-[30%] p-5 border-gray-500 rounded-lg border-2`}></div>
+            <div className={`w-[30%] p-5 border-gray-500 rounded-lg border-2`}></div>
+            <div className={`w-[30%] p-5 border-gray-500 rounded-lg border-2`}></div>
+          </div>
         </div>
       </div>
       <div className={``} id={`contact`}>
@@ -103,9 +131,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
-      <div>
-        <div className={`w-11/12 p-10`}></div>
       </div>
     </div>
   )
