@@ -1,20 +1,36 @@
 import { Routes, Route, useNavigate } from "react-router-dom"
 import collab from '../assets/collab.jpg';
+import { useState, useEffect } from "react";
 
 export default function Home() {
     const navigate = useNavigate();
 
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 0);
+    };
+
+    useEffect(() => {
+      window.addEventListener('scroll', handleScroll);
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, []);
+
   return (
     <div className={`min-h-screen`} data-theme='dark'>
-      <div className={`fixed top-0 w-screen py-2 z-50`}>
+      <div id={`navbar`} className={`top-0 py-2 z-50 bg-neutral border-b-2 border-gray-500 transition-all duration-300`}>
         <div className={`w-4/6 mx-auto navbar rounded-lg bg-neutral px-4 py-4 text-neutral-content`}>
           <div className={`navbar-start`}>
             <button className={`btn btn-ghost text-3xl`}>Projectify</button>
           </div>
           <div className={`navbar-center`}>
             <ul className="menu menu-horizontal px-1">
-              <li className={`text-lg`}><a href={`#features`}>Features</a></li>
-              <li className={`text-lg mx-2`}><a href={`#mission`}>Our Mission</a></li>
+              <li className={`text-lg`}><a href={`#mission`}>Our Mission</a></li>
+              <li className={`text-lg mx-2`}><a>Services</a></li>
+              <li className={`text-lg mr-2`}><a href={`#pricing`}>Pricing</a></li>
               <li className={`text-lg`}><a href={`#contact`}>Contact</a></li>
             </ul>
           </div>
@@ -24,7 +40,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className={`min-h-screen flex justify-center items-center`}>
+      <div className={`flex justify-center items-center`}>
         <div className={`w-11/12 rounded-xl p-10 flex flex-row items-center`}>
           <div className={`w-1/2`}>
             <span className={`type-fruit text-accent text-8xl font-bold`}></span>
@@ -33,46 +49,11 @@ export default function Home() {
               can easily work on projects and complete them on time for the public.
             </p>
             <div>
-              <button className={`btn btn-accent text-lg`}>Start Creating Today</button>
+              <button className={`btn btn-accent text-lg`} onClick={() => navigate('/register', { replace: true })}>Start Creating Today</button>
             </div>
           </div>
           <div className={`w-1/2 justify-center items-center flex`}>
             <img src={collab} alt="Collaboration" className={`rounded-xl w-11/12 h-auto`}/>
-          </div>
-        </div>
-      </div>
-      <div className={``} id={`features`}>
-        <div className={`w-11/12 rounded-xl p-10 mx-auto`}>
-          <h2 className={`text-6xl font-bold mb-10 text-center`}>Features</h2>
-          <div className={`flex flex-row flex-wrap`}>
-            <div className="card w-96 bg-base-100 shadow-xl mr-6 mb-6">
-              <figure><img src="https://t4.ftcdn.net/jpg/03/03/55/51/360_F_303555158_0h7YQZePL54n1UFE0Y5u4xqLSvHklqwc.jpg" alt="Shoes" /></figure>
-              <div className="card-body">
-                <h2 className="card-title">Feature 1</h2>
-                <p>Explanation of feature 1</p>
-              </div>
-            </div>
-            <div className="card w-96 bg-base-100 shadow-xl mr-6 mb-6">
-              <figure><img src="https://t4.ftcdn.net/jpg/03/03/55/51/360_F_303555158_0h7YQZePL54n1UFE0Y5u4xqLSvHklqwc.jpg" alt="Shoes" /></figure>
-              <div className="card-body">
-              <h2 className="card-title">Feature 2</h2>
-                <p>Explanation of feature 2</p>
-              </div>
-            </div>
-            <div className="card w-96 bg-base-100 shadow-xl mr-6 mb-6">
-              <figure><img src="https://t4.ftcdn.net/jpg/03/03/55/51/360_F_303555158_0h7YQZePL54n1UFE0Y5u4xqLSvHklqwc.jpg" alt="Shoes" /></figure>
-              <div className="card-body">
-              <h2 className="card-title">Feature 2</h2>
-                <p>Explanation of feature 2</p>
-              </div>
-            </div>
-            <div className="card w-96 bg-base-100 shadow-xl mr-6 mb-6">
-              <figure><img src="https://t4.ftcdn.net/jpg/03/03/55/51/360_F_303555158_0h7YQZePL54n1UFE0Y5u4xqLSvHklqwc.jpg" alt="Shoes" /></figure>
-              <div className="card-body">
-              <h2 className="card-title">Feature 2</h2>
-                <p>Explanation of feature 2</p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -122,6 +103,9 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </div>
+      <div>
+        <div className={`w-11/12 p-10`}></div>
       </div>
     </div>
   )

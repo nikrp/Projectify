@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import { FcGoogle } from "react-icons/fc";
 import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { collection, query, where, getDocs, setDoc, doc } from "firebase/firestore";
+import { collection, query, where, getDocs, setDoc, doc, addDoc } from "firebase/firestore";
 import { auth, db } from '../firebase';
 import { useState } from "react";
 
@@ -22,15 +22,42 @@ export default function Register() {
     const googleSignIn = () => {
         signInWithPopup(auth, new GoogleAuthProvider()).then((result) => {
             const q = query(collection(db, 'users'), where("uid", "==", result.user.uid));
-            getDocs(q).then((querySnapshot) => {
+            getDocs(q).then(async (querySnapshot) => {
+                console.log(querySnapshot.docs);
                 if (querySnapshot.docs.length === 0) {
-                    setDoc(doc(db, "users", result.user.uid), {
-
+                    await setDoc(doc(db, "users", result.user.uid), {
+                        fName: result.user.displayName,
+                        lName: "",
+                        email: result.user.email,
+                        username: result.user.displayName,
+                        uid: result.user.uid,
                     });
                 }
                 auth.signOut();
             });
         });
+    }
+
+    const signIn = async () => {
+        const result = await createUserWithEmailAndPassword(auth, userData.email, userData.password);
+        const q = query(collection(db, 'users'), where("uid", "==", result.user.uid));
+        const querySnapshot = await getDocs(q);
+        const { password, ...userDataWithoutPassword } = userData;
+        if (querySnapshot.docs.length === 0) {
+            console.log(querySnapshot.docs);
+            try {
+                await setDoc(doc(db, "users", result.user.uid), {
+                    ...userDataWithoutPassword,
+                    uid: result.user.uid
+                });
+                console.log("set");
+            } catch (error) {
+                console.error("Error setting document:", error);
+            }
+        } else {
+            console.log("Document already exists");
+        }
+        await auth.signOut();   
     }
 
     return (
@@ -72,17 +99,17 @@ export default function Register() {
                             </div>
                             <input type="password" name="password" value={userData.password} onChange={onChange} placeholder="Enter your password" className="input input-bordered input-lg w-full" />
                         </label>
-                        <button className={`mt-4 btn btn-primary text-xl w-full`}>Register</button>
+                        <button onClick={signIn} className={`mt-4 btn btn-primary text-xl w-full`}>Register</button>
                         <div className="divider">OR</div>
                         <button className={`px-2 py-2 mb-2 rounded-lg bg-blue-500 text-black text-xl text-left w-full flex items-center`} onClick={googleSignIn}>
                             <div className={`rounded-lg bg-white w-fit p-2`}>
                                 <FcGoogle className={`h-6 w-6`} />
                             </div>
                             <span className={`ml-auto mr-auto font-semibold text-white`}>
-                                Register with Google
+                                Login with Google
                             </span>
                         </button>
-                        <p className={`w-full text-left flex items-center justify-between`}><span className={`mr-auto`}>Already have an account? <span className={`text-accent cursor-pointer`}>Login</span></span><span className={`text-accent cursor-pointer ml-auto`}>Forgot Password?</span></p>
+                        <p className={`w-full text-left flex items-center justify-between`}><span className={`mr-auto`}>Already have an account? <span onClick={() => navigate('/login', { replace: true })} className={`text-accent cursor-pointer`}>Login</span></span></p>
                     </div>
                 </div>
             </div>
