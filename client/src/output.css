@@ -1073,12 +1073,6 @@ html {
     }
   }
 
-  .btn-link:hover {
-    border-color: transparent;
-    background-color: transparent;
-    text-decoration-line: underline;
-  }
-
   .btn-outline:hover {
     --tw-border-opacity: 1;
     border-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-border-opacity)));
@@ -1589,24 +1583,6 @@ html {
 .btn-ghost.btn-active {
   border-color: transparent;
   background-color: var(--fallback-bc,oklch(var(--bc)/0.2));
-}
-
-.btn-link {
-  border-color: transparent;
-  background-color: transparent;
-  --tw-text-opacity: 1;
-  color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity)));
-  text-decoration-line: underline;
-  --tw-shadow: 0 0 #0000;
-  --tw-shadow-colored: 0 0 #0000;
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-  outline-color: currentColor;
-}
-
-.btn-link.btn-active {
-  border-color: transparent;
-  background-color: transparent;
-  text-decoration-line: underline;
 }
 
 .btn-outline {
@@ -2267,11 +2243,6 @@ html {
   z-index: 1;
 }
 
-.mx-2 {
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-}
-
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -2280,6 +2251,11 @@ html {
 .my-10 {
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
+}
+
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .mb-10 {
@@ -2302,6 +2278,10 @@ html {
   margin-right: auto;
 }
 
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
 .mt-3 {
   margin-top: 0.75rem;
 }
@@ -2310,8 +2290,8 @@ html {
   margin-top: 1rem;
 }
 
-.mt-2 {
-  margin-top: 0.5rem;
+.mb-4 {
+  margin-bottom: 1rem;
 }
 
 .flex {
@@ -2324,6 +2304,10 @@ html {
 
 .h-24 {
   height: 6rem;
+}
+
+.h-5 {
+  height: 1.25rem;
 }
 
 .h-6 {
@@ -2358,12 +2342,24 @@ html {
   width: 66.666667%;
 }
 
+.w-5 {
+  width: 1.25rem;
+}
+
 .w-6 {
   width: 1.5rem;
 }
 
+.w-\[30\%\] {
+  width: 30%;
+}
+
 .w-\[49\%\] {
   width: 49%;
+}
+
+.w-\[500px\] {
+  width: 500px;
 }
 
 .w-fit {
@@ -2375,20 +2371,8 @@ html {
   width: 100%;
 }
 
-.w-52 {
-  width: 13rem;
-}
-
-.w-96 {
-  width: 24rem;
-}
-
-.w-\[500px\] {
-  width: 500px;
-}
-
-.w-\[30\%\] {
-  width: 30%;
+.flex-shrink-0 {
+  flex-shrink: 0;
 }
 
 .table-auto {
@@ -2399,8 +2383,16 @@ html {
   cursor: pointer;
 }
 
+.list-inside {
+  list-style-position: inside;
+}
+
 .flex-row {
   flex-direction: row;
+}
+
+.flex-col {
+  flex-direction: column;
 }
 
 .items-center {
@@ -2419,16 +2411,22 @@ html {
   gap: 0.5rem;
 }
 
+.space-x-3 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.75rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.rounded-box {
+  border-radius: var(--rounded-box, 1rem);
+}
+
 .rounded-lg {
   border-radius: 0.5rem;
 }
 
 .rounded-xl {
   border-radius: 0.75rem;
-}
-
-.rounded-box {
-  border-radius: var(--rounded-box, 1rem);
 }
 
 .border-2 {
@@ -2444,9 +2442,9 @@ html {
   border-color: rgb(107 114 128 / var(--tw-border-opacity));
 }
 
-.border-gray-400 {
-  --tw-border-opacity: 1;
-  border-color: rgb(156 163 175 / var(--tw-border-opacity));
+.bg-base-100 {
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
 }
 
 .bg-blue-500 {
@@ -2464,11 +2462,6 @@ html {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-base-100 {
-  --tw-bg-opacity: 1;
-  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
-}
-
 .p-10 {
   padding: 2.5rem;
 }
@@ -2477,12 +2470,12 @@ html {
   padding: 0.5rem;
 }
 
-.p-5 {
-  padding: 1.25rem;
-}
-
 .p-4 {
   padding: 1rem;
+}
+
+.p-5 {
+  padding: 1.25rem;
 }
 
 .px-1 {
@@ -2523,6 +2516,11 @@ html {
   text-align: center;
 }
 
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
@@ -2561,16 +2559,16 @@ html {
   font-weight: 300;
 }
 
+.font-normal {
+  font-weight: 400;
+}
+
 .font-semibold {
   font-weight: 600;
 }
 
 .font-thin {
   font-weight: 100;
-}
-
-.font-normal {
-  font-weight: 400;
 }
 
 .leading-relaxed {
@@ -2591,6 +2589,16 @@ html {
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
+.text-gray-400 {
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity));
+}
+
+.text-green-500 {
+  --tw-text-opacity: 1;
+  color: rgb(34 197 94 / var(--tw-text-opacity));
+}
+
 .text-neutral-content {
   --tw-text-opacity: 1;
   color: var(--fallback-nc,oklch(var(--nc)/var(--tw-text-opacity)));
@@ -2606,9 +2614,10 @@ html {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.text-gray-400 {
-  --tw-text-opacity: 1;
-  color: rgb(156 163 175 / var(--tw-text-opacity));
+.shadow {
+  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .shadow-md {
@@ -2620,12 +2629,6 @@ html {
 .shadow-xl {
   --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.shadow {
-  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
@@ -2658,259 +2661,255 @@ html {
     content: "Projectify.";
   }
 
-  1.08% {
+  0.56% {
     content: "P";
   }
 
-  1.36% {
+  1.18% {
     content: "Pr";
   }
 
-  2.13% {
+  1.7% {
     content: "Pro";
   }
 
-  2.98% {
+  2.54% {
     content: "Proj";
   }
 
-  3.33% {
+  3.4% {
     content: "Proje";
   }
 
-  4.56% {
+  3.92% {
     content: "Projec";
   }
 
-  4.67% {
+  4.65% {
     content: "Project";
   }
 
-  5.12% {
+  5.78% {
     content: "Projecti";
   }
 
-  6.02% {
+  6.07% {
     content: "Projectif";
   }
 
-  6.7% {
+  6.78% {
     content: "Projectify";
   }
 
-  7.39%, 16.65% {
+  8.07%, 17.33% {
     content: "Projectify.";
   }
 
-  17.02% {
+  18.14% {
     content: "S";
-  }
-
-  18.52% {
-    content: "St";
   }
 
   18.44% {
+    content: "St";
+  }
+
+  19.56% {
     content: "Sto";
   }
 
-  19.89% {
+  20.29% {
     content: "Stor";
   }
 
-  20.35% {
+  20.99% {
     content: "Stora";
   }
 
-  21.06% {
+  21.89% {
     content: "Storag";
   }
 
-  21.2% {
+  22.2% {
     content: "Storage";
   }
 
-  22.07%, 31.32% {
+  22.94%, 32.2% {
     content: "Storage.";
   }
 
-  31.82% {
+  32.96% {
     content: "H";
   }
 
-  32.79% {
+  34.04% {
     content: "Ho";
   }
 
-  33.15% {
+  34.72% {
     content: "Hos";
   }
 
-  33.85% {
+  35.36% {
     content: "Host";
   }
 
-  34.83% {
+  35.28% {
     content: "Hosti";
   }
 
-  35.1% {
+  36.87% {
     content: "Hostin";
   }
 
-  36.27% {
+  37.17% {
     content: "Hosting";
   }
 
-  37.38%, 46.64% {
+  37.43%, 46.69% {
     content: "Hosting.";
   }
 
-  47.61% {
+  47.7% {
     content: "C";
   }
 
-  48.29% {
+  48.04% {
     content: "Co";
   }
 
-  48.96% {
+  48.45% {
     content: "Col";
   }
 
-  49.77% {
+  49.92% {
     content: "Coll";
   }
 
-  50.2% {
+  50.48% {
     content: "Colla";
   }
 
-  50.99% {
+  50.74% {
     content: "Collab";
   }
 
-  51.5% {
+  51.85% {
     content: "Collabo";
   }
 
-  52.59% {
+  52.64% {
     content: "Collabor";
   }
 
-  52.93% {
+  53.32% {
     content: "Collabora";
   }
 
-  53.56% {
+  54.03% {
     content: "Collaborat";
   }
 
-  54.08% {
+  54.24% {
     content: "Collaborati";
   }
 
-  54.73% {
+  54.7% {
     content: "Collaboratio";
   }
 
-  56.08% {
+  55.78% {
     content: "Collaboration";
   }
 
-  56.53%, 65.79% {
+  55.92%, 65.18% {
     content: "Collaboration.";
   }
 
-  66.45% {
+  65.76% {
     content: "S";
   }
 
-  66.68% {
+  66.96% {
     content: "Sc";
   }
 
-  68.34% {
+  67.33% {
     content: "Sca";
   }
 
-  68.87% {
+  67.62% {
     content: "Scaf";
   }
 
-  69.23% {
+  68.8% {
     content: "Scaff";
   }
 
-  69.94% {
+  69.39% {
     content: "Scaffo";
   }
 
-  71.06% {
+  70.26% {
     content: "Scaffol";
   }
 
-  70.92% {
+  70.38% {
     content: "Scaffold";
   }
 
-  72.32% {
+  71.34% {
     content: "Scaffoldi";
   }
 
-  72.57% {
+  72.46% {
     content: "Scaffoldin";
   }
 
-  73.74% {
+  72.63% {
     content: "Scaffolding";
   }
 
-  74.07%, 83.33% {
+  73.41%, 82.67% {
     content: "Scaffolding.";
   }
 
-  84.18% {
+  83.51% {
     content: "P";
   }
 
-  85.19% {
+  84.12% {
     content: "Pr";
   }
 
-  85.89% {
+  84.7% {
     content: "Pro";
   }
 
-  85.94% {
+  85.03% {
     content: "Proj";
   }
 
-  86.45% {
-    content: "Proje";
-  }
-
-  87.91% {
+  86.64% {
     content: "Projec";
   }
 
-  88.13% {
+  87.19% {
     content: "Project";
   }
 
-  88.47% {
+  88.69% {
     content: "Projecti";
   }
 
-  89.21% {
+  89.2% {
     content: "Projectif";
   }
 
-  90.54% {
+  89.14% {
     content: "Projectify";
   }
 
-  90.89%, 100.15% {
+  90.75%, 100.01% {
     content: "Projectify.";
   }
 }
@@ -2950,5 +2949,12 @@ html {
 @media (min-width: 1280px) {
   .xl\:w-2\/6 {
     width: 33.333333%;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .dark\:text-green-400 {
+    --tw-text-opacity: 1;
+    color: rgb(74 222 128 / var(--tw-text-opacity));
   }
 }

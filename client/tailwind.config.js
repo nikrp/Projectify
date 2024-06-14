@@ -4,7 +4,11 @@ import daisyui from 'daisyui';
 export default {
   content: ["./src/**/*.{html,js,jsx}"],
   theme: {
-    extend: {},
+    extend: {
+      listStyleImage: {
+        checkmark: 'url(./assets/checkmark.png)',
+      },
+    },
   },
   plugins: [
     require('daisyui'),

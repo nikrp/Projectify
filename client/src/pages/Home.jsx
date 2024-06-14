@@ -85,9 +85,83 @@ export default function Home() {
         <div className={`w-11/12 p-10 rounded-xl mx-auto`}>
           <h2 className={`text-6xl font-bold mb-10 text-center`}>Pricing</h2>
           <div className={`p-5 flex items-center justify-between`}>
-            <div className={`w-[30%] p-5 border-gray-500 rounded-lg border-2`}></div>
-            <div className={`w-[30%] p-5 border-gray-500 rounded-lg border-2`}></div>
-            <div className={`w-[30%] p-5 border-gray-500 rounded-lg border-2`}></div>
+            <div className={`w-[30%] p-5 border-gray-500 rounded-lg border-2 flex flex-col justify-center`}>
+              <h3 className={`text-2xl font-bold text-center`}>Basic</h3>
+              <p className={`text-xl font-normal text-center my-4 text-gray-400`}>Best used for personal use and/or small group projects.</p>
+              <h3 className={`text-3xl font-bold text-center mb-4`}>$0/month</h3>
+              <ul className={`list-inside`}>
+                <li class="flex items-center space-x-3">
+                  <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                  <span>2 GB of Storage per Project</span>
+                </li>
+                <li class="flex items-center space-x-3">
+                  <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                  <span>Up to 5 Projects</span>
+                </li>
+                <li class="flex items-center space-x-3">
+                  <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                  <span>1 Team of up to 10 people</span>
+                </li>
+                <li class="flex items-center space-x-3">
+                  <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                  <span>3 Domains for Hosting</span>
+                </li>
+              </ul>
+            </div>
+            <div className={`w-[30%] p-5 border-gray-500 rounded-lg border-2`}>
+              <h3 className={`text-2xl font-bold text-center`}>Pro</h3>
+              <p className={`text-xl font-normal text-center my-4 text-gray-400`}>Best used for large teams and many projects</p>
+              <h3 className={`text-3xl font-bold text-center mb-4`}>$2/month</h3>
+              <ul className={`list-inside`}>
+                <li class="flex items-center space-x-3">
+                  <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                  <span>10 GB of Storage per Project</span>
+                </li>
+                <li class="flex items-center space-x-3">
+                  <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                  <span>Unlimited Projects</span>
+                </li>
+                <li class="flex items-center space-x-3">
+                  <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                  <span>1 Team of up to 50 people</span>
+                </li>
+                <li class="flex items-center space-x-3">
+                  <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                  <span>Organizations</span>
+                </li>
+                <li class="flex items-center space-x-3">
+                  <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                  <span>10 Domains for Hosting</span>
+                </li>
+              </ul>
+            </div>
+            <div className={`w-[30%] p-5 border-gray-500 rounded-lg border-2`}>
+              <h3 className={`text-2xl font-bold text-center`}>Enterprise</h3>
+              <p className={`text-xl font-normal text-center my-4 text-gray-400`}>Best used for large organizations with special needs.</p>
+              <h3 className={`text-3xl font-bold text-center mb-4`}>Contact us for Pricing</h3>
+              <ul className={`list-inside`}>
+                <li class="flex items-center space-x-3">
+                  <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                  <span>Custom Storage per Project</span>
+                </li>
+                <li class="flex items-center space-x-3">
+                  <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                  <span>Unlimited Projects</span>
+                </li>
+                <li class="flex items-center space-x-3">
+                  <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                  <span>10 Team of up to 100 people</span>
+                </li>
+                <li class="flex items-center space-x-3">
+                  <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                  <span>Organizations</span>
+                </li>
+                <li class="flex items-center space-x-3">
+                  <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                  <span>Unlimited Domains for Hosting</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
