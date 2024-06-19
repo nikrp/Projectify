@@ -33,6 +33,7 @@ export default function Register() {
                         uid: result.user.uid,
                     });
                 }
+                navigate('/dashboard', { replace: true });
                 auth.signOut();
             });
         });
@@ -57,6 +58,7 @@ export default function Register() {
         } else {
             console.log("Document already exists");
         }
+        navigate('/dashboard', { replace: true });
         await auth.signOut();   
     }
 

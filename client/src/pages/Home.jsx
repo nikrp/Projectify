@@ -20,7 +20,7 @@ export default function Home() {
     }, []);
 
   return (
-    <div className={`min-h-screen`} data-theme='dark'>
+    <div className={`min-h-screen`}>
       <div id={`navbar`} className={`top-0 py-2 z-50 bg-neutral border-b-2 border-gray-500 transition-all duration-300`}>
         <div className={`w-4/6 mx-auto navbar rounded-lg bg-neutral px-4 py-4 text-neutral-content`}>
           <div className={`navbar-start`}>
@@ -107,8 +107,9 @@ export default function Home() {
                   <span>3 Domains for Hosting</span>
                 </li>
               </ul>
+              <button className={`mx-auto text-lg px-6 py-1 btn btn-primary mt-6 font-normal`}>Get Started</button>
             </div>
-            <div className={`w-[30%] p-5 border-gray-500 rounded-lg border-2`}>
+            <div className={`w-[30%] p-5 border-gray-500 rounded-lg border-2 flex flex-col justify-center`}>
               <h3 className={`text-2xl font-bold text-center`}>Pro</h3>
               <p className={`text-xl font-normal text-center my-4 text-gray-400`}>Best used for large teams and many projects</p>
               <h3 className={`text-3xl font-bold text-center mb-4`}>$2/month</h3>
@@ -134,8 +135,9 @@ export default function Home() {
                   <span>10 Domains for Hosting</span>
                 </li>
               </ul>
+              <button className={`mx-auto text-lg px-6 py-1 btn btn-primary mt-6 font-normal`}>Get Started</button>
             </div>
-            <div className={`w-[30%] p-5 border-gray-500 rounded-lg border-2`}>
+            <div className={`w-[30%] p-5 border-gray-500 rounded-lg border-2 flex flex-col justify-center`}>
               <h3 className={`text-2xl font-bold text-center`}>Enterprise</h3>
               <p className={`text-xl font-normal text-center my-4 text-gray-400`}>Best used for large organizations with special needs.</p>
               <h3 className={`text-3xl font-bold text-center mb-4`}>Contact us for Pricing</h3>
@@ -161,6 +163,7 @@ export default function Home() {
                   <span>Unlimited Domains for Hosting</span>
                 </li>
               </ul>
+              <button className={`mx-auto text-lg px-6 py-1 btn btn-primary mt-6 font-normal`}>Get Started</button>
             </div>
           </div>
         </div>

@@ -30,6 +30,7 @@ export default function Login() {
                         uid: result.user.uid,
                     });
                 }
+                navigate('/dashboard', { replace: true });
                 auth.signOut();
             });
         });
@@ -38,6 +39,7 @@ export default function Login() {
     const signIn = async () => {
         await signInWithEmailAndPassword(auth, userData.email, userData.password);
         console.log("logged in");
+        navigate('/dashboard', { replace: true });
         await auth.signOut();
     }
 
