@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <div className={`min-h-screen`}>
       <div id={`navbar`} className={`top-0 py-2 z-50 bg-neutral border-b-2 border-gray-500 transition-all duration-300`}>
-        <div className={`w-4/6 mx-auto navbar rounded-lg bg-neutral px-4 py-4 text-neutral-content`}>
+        <div className={`w-4/6 md:w-full md:flex lg:w-4/6 lg:flex sm:hidden mx-auto navbar rounded-lg bg-neutral px-4 py-4 text-neutral-content`}>
           <div className={`navbar-start`}>
             <button className={`btn btn-ghost text-3xl`}>Projectify</button>
           </div>
