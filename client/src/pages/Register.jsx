@@ -63,7 +63,7 @@ export default function Register() {
     }
 
     return (
-        <div className={`h-screen flex justify-center items-center`} data-theme="dark">
+        <div className={`h-screen flex justify-center items-center w-full`} data-theme="dark">
             <button className={`btn btn-neutral fixed top-5 left-5`} onClick={() => navigate('/', { replace: true })}>←  Back</button>
             <div className="card bg-neutral text-neutral-content xl:w-2/6 lg:w-2/5 shadow-md">
                 <div className="card-body items-center text-center">

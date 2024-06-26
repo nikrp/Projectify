@@ -1,9 +1,10 @@
 import { useNavigate } from "react-router-dom"
 import { FcGoogle } from "react-icons/fc";
-import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, EmailAuthProvider } from "firebase/auth";
 import { collection, query, where, getDocs, doc } from "firebase/firestore";
 import { auth, db } from '../firebase';
 import { useState } from "react";
+import Cookies from 'js-cookie';
 
 export default function Login() {
     const navigate = useNavigate();
@@ -18,33 +19,39 @@ export default function Login() {
 
     const googleSignIn = () => {
         signInWithPopup(auth, new GoogleAuthProvider()).then((result) => {
-            const q = query(collection(db, 'users'), where("uid", "==", result.user.uid));
-            getDocs(q).then(async (querySnapshot) => {
-                console.log(querySnapshot.docs);
-                if (querySnapshot.docs.length === 0) {
-                    await setDoc(doc(db, "users", result.user.uid), {
-                        fName: result.user.displayName,
-                        lName: "",
-                        email: result.user.email,
-                        username: result.user.displayName,
-                        uid: result.user.uid,
-                    });
-                }
-                navigate('/dashboard', { replace: true });
-                auth.signOut();
+            result.user.getIdToken().then((idToken) => {
+                const token = GoogleAuthProvider.credential(idToken);
+                Cookies.set('nekothserfer', result.user.refreshToken);
+                const q = query(collection(db, 'users'), where("uid", "==", result.user.uid));
+                getDocs(q).then(async (querySnapshot) => {
+                    console.log(querySnapshot.docs);
+                    if (querySnapshot.docs.length === 0) {
+                        await setDoc(doc(db, "users", result.user.uid), {
+                            fName: result.user.displayName,
+                            lName: "",
+                            email: result.user.email,
+                            username: result.user.displayName,
+                            uid: result.user.uid,
+                        });
+                    }
+                    navigate('/dashboard', { replace: true });
+                });
+            }).catch((e) => {
+                console.error("error fetching id token:", e);
             });
         });
     }
 
     const signIn = async () => {
-        await signInWithEmailAndPassword(auth, userData.email, userData.password);
+        const result = await signInWithEmailAndPassword(auth, userData.email, userData.password);
+        const token = EmailAuthProvider.credential(userData.email, userData.password);
+        Cookies.set('nekothserfer', token);
         console.log("logged in");
         navigate('/dashboard', { replace: true });
-        await auth.signOut();
     }
 
     return (
-        <div className={`h-screen flex justify-center items-center`} data-theme="dark">
+        <div className={`h-screen flex justify-center items-center w-full`} data-theme="dark">
             <button className={`btn btn-neutral fixed top-5 left-5`} onClick={() => navigate('/', { replace: true })}>←  Back</button>
             <div className="card bg-neutral text-neutral-content w-2/6 shadow-md">
                 <div className="card-body items-center text-center">
