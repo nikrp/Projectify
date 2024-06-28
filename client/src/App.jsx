@@ -7,7 +7,7 @@ import Dashboard from "./pages/Dashboard";
 import Sidebar from './components/Sidebar';
 import { useEffect, useState } from "react";
 import { auth } from "./firebase";
-import { signInWithCredential } from "firebase/auth";
+import { EmailAuthProvider, GoogleAuthProvider, signInWithCredential } from "firebase/auth";
 import Cookies from 'js-cookie';
 
 function App() {
@@ -16,25 +16,31 @@ function App() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    auth.onAuthStateChanged(function(user) {
-      if (user) {
-        console.log("Still logged in");
-        setUserData(user);
-      } else {
-        console.log("Not logged in")
-        const rToken = Cookies.get('nekothserfer');
-        console.log('CREDENTIAL:', typeof rToken);
-        if (rToken) {
-          signInWithCredential(auth, rToken).then((result) => {
-            console.log("Logged in:", auth.currentUser.displayName);
-            setUserData(result.user);
-            useNavigate('/dashboard', { replace: true });
-          }).catch((e) => {
-            console.error("Error Signing In With Credential:", e);
-          });
-        }
-      }
-    });
+    // auth.onAuthStateChanged(function(user) {
+    //   if (user) {
+    //     console.log("Still logged in");
+    //     setUserData(user);
+    //   } else {
+    //     console.log("Not logged in")
+    //     const rToken = Cookies.get('nekothserfer');
+    //     const tokenProvider = Cookies.get('nsprovider');
+    //     let token = undefined;
+    //     if (tokenProvider === 'google') {
+    //       token = GoogleAuthProvider.credential(rToken.trim());
+    //     } else if (tokenProvider === 'email') {
+    //       token = EmailAuthProvider.credential(rToken.trim().split(" ")[0], rToken.trim().split(" ")[1]);
+    //     }
+    //     if (token) {
+    //       signInWithCredential(auth, token).then((result) => {
+    //         console.log("Logged in:", auth.currentUser.displayName);
+    //         setUserData(result.user);
+    //         useNavigate('/dashboard', { replace: true });
+    //       }).catch((e) => {
+    //         console.error("Error Signing In With Credential:", e);
+    //       });
+    //     }
+    //   }
+    // });
   }, []);
 
   return (

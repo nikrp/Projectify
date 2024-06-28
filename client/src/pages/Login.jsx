@@ -20,8 +20,10 @@ export default function Login() {
     const googleSignIn = () => {
         signInWithPopup(auth, new GoogleAuthProvider()).then((result) => {
             result.user.getIdToken().then((idToken) => {
-                const token = GoogleAuthProvider.credential(idToken);
-                Cookies.set('nekothserfer', result.user.refreshToken);
+                console.log(typeof idToken, idToken);
+                // const token = GoogleAuthProvider.credential(idToken);
+                Cookies.set('nekothserfer', idToken);
+                Cookies.set('nsprovider', 'google');
                 const q = query(collection(db, 'users'), where("uid", "==", result.user.uid));
                 getDocs(q).then(async (querySnapshot) => {
                     console.log(querySnapshot.docs);
@@ -45,7 +47,8 @@ export default function Login() {
     const signIn = async () => {
         const result = await signInWithEmailAndPassword(auth, userData.email, userData.password);
         const token = EmailAuthProvider.credential(userData.email, userData.password);
-        Cookies.set('nekothserfer', token);
+        Cookies.set('nekothserfer', `${userData.email} ${userData.password}`);
+        Cookies.set('nsprovider', 'email');
         console.log("logged in");
         navigate('/dashboard', { replace: true });
     }

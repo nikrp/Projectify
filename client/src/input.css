@@ -13,3 +13,7 @@
     opacity: 1;
   }
 }
+
+.sprogress-primary {
+  @apply progress-primary;
+}

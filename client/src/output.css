@@ -1742,6 +1742,24 @@ html {
   --tw-contain-style:  ;
 }
 
+.avatar {
+  position: relative;
+  display: inline-flex;
+}
+
+.avatar > div {
+  display: block;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.avatar img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .avatar.placeholder > div {
   display: flex;
   align-items: center;
@@ -2333,6 +2351,18 @@ html {
   justify-content: flex-end;
 }
 
+.progress {
+  position: relative;
+  width: 100%;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  overflow: hidden;
+  height: 0.5rem;
+  border-radius: var(--rounded-box, 1rem);
+  background-color: var(--fallback-bc,oklch(var(--bc)/0.2));
+}
+
 .table {
   position: relative;
   width: 100%;
@@ -2381,6 +2411,14 @@ html {
   border-color: transparent;
   --tw-bg-opacity: 1;
   background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
+}
+
+.avatar-group :where(.avatar) {
+  overflow: hidden;
+  border-radius: 9999px;
+  border-width: 4px;
+  --tw-border-opacity: 1;
+  border-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-border-opacity)));
 }
 
 .badge-info {
@@ -2769,6 +2807,12 @@ html {
   gap: 1rem;
 }
 
+.divider-neutral:before,
+  .divider-neutral:after {
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-n,oklch(var(--n)/var(--tw-bg-opacity)));
+}
+
 .dropdown.dropdown-open .dropdown-content,
 .dropdown:focus .dropdown-content,
 .dropdown:focus-within .dropdown-content {
@@ -2987,6 +3031,156 @@ html {
   }
 }
 
+.progress::-moz-progress-bar {
+  border-radius: var(--rounded-box, 1rem);
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-bg-opacity)));
+}
+
+.progress-primary::-moz-progress-bar {
+  border-radius: var(--rounded-box, 1rem);
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-p,oklch(var(--p)/var(--tw-bg-opacity)));
+}
+
+.progress-secondary::-moz-progress-bar {
+  border-radius: var(--rounded-box, 1rem);
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-s,oklch(var(--s)/var(--tw-bg-opacity)));
+}
+
+.progress-accent::-moz-progress-bar {
+  border-radius: var(--rounded-box, 1rem);
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-a,oklch(var(--a)/var(--tw-bg-opacity)));
+}
+
+.progress-info::-moz-progress-bar {
+  border-radius: var(--rounded-box, 1rem);
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-in,oklch(var(--in)/var(--tw-bg-opacity)));
+}
+
+.progress-success::-moz-progress-bar {
+  border-radius: var(--rounded-box, 1rem);
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-su,oklch(var(--su)/var(--tw-bg-opacity)));
+}
+
+.progress-warning::-moz-progress-bar {
+  border-radius: var(--rounded-box, 1rem);
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-wa,oklch(var(--wa)/var(--tw-bg-opacity)));
+}
+
+.progress-error::-moz-progress-bar {
+  border-radius: var(--rounded-box, 1rem);
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-er,oklch(var(--er)/var(--tw-bg-opacity)));
+}
+
+.progress:indeterminate {
+  --progress-color: var(--fallback-bc,oklch(var(--bc)/1));
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--progress-color) -1%,
+    var(--progress-color) 10%,
+    transparent 10%,
+    transparent 90%
+  );
+  background-size: 200%;
+  background-position-x: 15%;
+  animation: progress-loading 5s ease-in-out infinite;
+}
+
+.progress-primary:indeterminate {
+  --progress-color: var(--fallback-p,oklch(var(--p)/1));
+}
+
+.progress-secondary:indeterminate {
+  --progress-color: var(--fallback-s,oklch(var(--s)/1));
+}
+
+.progress-accent:indeterminate {
+  --progress-color: var(--fallback-a,oklch(var(--a)/1));
+}
+
+.progress-info:indeterminate {
+  --progress-color: var(--fallback-in,oklch(var(--in)/1));
+}
+
+.progress-success:indeterminate {
+  --progress-color: var(--fallback-su,oklch(var(--su)/1));
+}
+
+.progress-warning:indeterminate {
+  --progress-color: var(--fallback-wa,oklch(var(--wa)/1));
+}
+
+.progress-error:indeterminate {
+  --progress-color: var(--fallback-er,oklch(var(--er)/1));
+}
+
+.progress::-webkit-progress-bar {
+  border-radius: var(--rounded-box, 1rem);
+  background-color: transparent;
+}
+
+.progress::-webkit-progress-value {
+  border-radius: var(--rounded-box, 1rem);
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-bg-opacity)));
+}
+
+.progress-primary::-webkit-progress-value {
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-p,oklch(var(--p)/var(--tw-bg-opacity)));
+}
+
+.progress-secondary::-webkit-progress-value {
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-s,oklch(var(--s)/var(--tw-bg-opacity)));
+}
+
+.progress-accent::-webkit-progress-value {
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-a,oklch(var(--a)/var(--tw-bg-opacity)));
+}
+
+.progress-info::-webkit-progress-value {
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-in,oklch(var(--in)/var(--tw-bg-opacity)));
+}
+
+.progress-success::-webkit-progress-value {
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-su,oklch(var(--su)/var(--tw-bg-opacity)));
+}
+
+.progress-warning::-webkit-progress-value {
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-wa,oklch(var(--wa)/var(--tw-bg-opacity)));
+}
+
+.progress-error::-webkit-progress-value {
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-er,oklch(var(--er)/var(--tw-bg-opacity)));
+}
+
+.progress:indeterminate::-moz-progress-bar {
+  background-color: transparent;
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--progress-color) -1%,
+    var(--progress-color) 10%,
+    transparent 10%,
+    transparent 90%
+  );
+  background-size: 200%;
+  background-position-x: 15%;
+  animation: progress-loading 5s ease-in-out infinite;
+}
+
 @keyframes progress-loading {
   50% {
     background-position-x: -115%;
@@ -3170,6 +3364,40 @@ html {
   line-height: 2;
 }
 
+.avatar.online:before {
+  content: "";
+  position: absolute;
+  z-index: 10;
+  display: block;
+  border-radius: 9999px;
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-su,oklch(var(--su)/var(--tw-bg-opacity)));
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: var(--fallback-b1,oklch(var(--b1)/1));
+  width: 15%;
+  height: 15%;
+  top: 7%;
+  right: 7%;
+}
+
+.avatar.offline:before {
+  content: "";
+  position: absolute;
+  z-index: 10;
+  display: block;
+  border-radius: 9999px;
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-b3,oklch(var(--b3)/var(--tw-bg-opacity)));
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: var(--fallback-b1,oklch(var(--b1)/1));
+  width: 15%;
+  height: 15%;
+  top: 7%;
+  right: 7%;
+}
+
 .card-compact .card-body {
   padding: 1rem;
   font-size: 0.875rem;
@@ -3215,10 +3443,6 @@ html {
   position: fixed;
 }
 
-.relative {
-  position: relative;
-}
-
 .left-5 {
   left: 1.25rem;
 }
@@ -3237,6 +3461,26 @@ html {
 
 .z-\[1\] {
   z-index: 1;
+}
+
+.col-span-2 {
+  grid-column: span 2 / span 2;
+}
+
+.col-span-3 {
+  grid-column: span 3 / span 3;
+}
+
+.m-4 {
+  margin: 1rem;
+}
+
+.m-2 {
+  margin: 0.5rem;
+}
+
+.m-1 {
+  margin: 0.25rem;
 }
 
 .mx-auto {
@@ -3266,8 +3510,16 @@ html {
   margin-bottom: 0.5rem;
 }
 
+.mb-3 {
+  margin-bottom: 0.75rem;
+}
+
 .mb-4 {
   margin-bottom: 1rem;
+}
+
+.mb-5 {
+  margin-bottom: 1.25rem;
 }
 
 .ml-auto {
@@ -3302,6 +3554,25 @@ html {
   margin-top: 1.5rem;
 }
 
+.mr-1 {
+  margin-right: 0.25rem;
+}
+
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
+.ml-5 {
+  margin-left: 1.25rem;
+}
+
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
 .flex {
   display: flex;
 }
@@ -3310,8 +3581,16 @@ html {
   display: table;
 }
 
+.grid {
+  display: grid;
+}
+
 .h-24 {
   height: 6rem;
+}
+
+.h-3 {
+  height: 0.75rem;
 }
 
 .h-5 {
@@ -3326,8 +3605,17 @@ html {
   height: auto;
 }
 
+.h-fit {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
 .h-screen {
   height: 100vh;
+}
+
+.h-full {
+  height: 100%;
 }
 
 .min-h-screen {
@@ -3364,6 +3652,10 @@ html {
 
 .w-64 {
   width: 16rem;
+}
+
+.w-8 {
+  width: 2rem;
 }
 
 .w-\[30\%\] {
@@ -3407,6 +3699,14 @@ html {
   list-style-position: inside;
 }
 
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-cols-9 {
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+}
+
 .flex-row {
   flex-direction: row;
 }
@@ -3423,6 +3723,10 @@ html {
   justify-content: flex-start;
 }
 
+.justify-end {
+  justify-content: flex-end;
+}
+
 .justify-center {
   justify-content: center;
 }
@@ -3431,8 +3735,20 @@ html {
   justify-content: space-between;
 }
 
+.gap-0 {
+  gap: 0px;
+}
+
 .gap-2 {
   gap: 0.5rem;
+}
+
+.gap-3 {
+  gap: 0.75rem;
+}
+
+.gap-4 {
+  gap: 1rem;
 }
 
 .space-x-3 > :not([hidden]) ~ :not([hidden]) {
@@ -3465,10 +3781,6 @@ html {
   border-bottom-width: 2px;
 }
 
-.border-r-2 {
-  border-right-width: 2px;
-}
-
 .border-gray-500 {
   --tw-border-opacity: 1;
   border-color: rgb(107 114 128 / var(--tw-border-opacity));
@@ -3487,6 +3799,11 @@ html {
 .bg-base-200 {
   --tw-bg-opacity: 1;
   background-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-bg-opacity)));
+}
+
+.bg-base-300 {
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-b3,oklch(var(--b3)/var(--tw-bg-opacity)));
 }
 
 .bg-blue-500 {
@@ -3578,6 +3895,10 @@ html {
   text-align: center;
 }
 
+.text-right {
+  text-align: right;
+}
+
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -3611,6 +3932,11 @@ html {
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .text-xl {
@@ -3742,259 +4068,259 @@ html {
     content: "Projectify.";
   }
 
-  1.01% {
+  0.58% {
     content: "P";
   }
 
-  0.98% {
+  0.89% {
     content: "Pr";
   }
 
-  2.14% {
+  1.83% {
     content: "Pro";
   }
 
-  2.34% {
+  3.19% {
     content: "Proj";
   }
 
-  3.33% {
+  3.36% {
     content: "Proje";
   }
 
-  4.05% {
+  4.64% {
     content: "Projec";
   }
 
-  4.73% {
+  4.87% {
     content: "Project";
   }
 
-  5.72% {
+  5.47% {
     content: "Projecti";
   }
 
-  6.18% {
+  6.51% {
     content: "Projectif";
   }
 
-  7.32% {
+  7.43% {
     content: "Projectify";
   }
 
-  7.55%, 16.81% {
+  7.14%, 16.4% {
     content: "Projectify.";
   }
 
-  17.96% {
+  17.21% {
     content: "S";
   }
 
-  18.05% {
+  17.65% {
     content: "St";
   }
 
-  18.48% {
+  18.36% {
     content: "Sto";
   }
 
-  19.58% {
+  19.04% {
     content: "Stor";
   }
 
-  19.93% {
+  19.92% {
     content: "Stora";
   }
 
-  20.88% {
+  20.2% {
     content: "Storag";
   }
 
-  21.43% {
+  21.15% {
     content: "Storage";
   }
 
-  22.61%, 31.87% {
+  21.73%, 30.99% {
     content: "Storage.";
   }
 
-  32.07% {
+  32.09% {
     content: "H";
   }
 
-  33% {
+  32.38% {
     content: "Ho";
   }
 
-  34.29% {
+  33.28% {
     content: "Hos";
   }
 
-  34.57% {
+  33.56% {
     content: "Host";
   }
 
-  35.43% {
+  34.74% {
     content: "Hosti";
   }
 
-  35.69% {
+  35.11% {
     content: "Hostin";
   }
 
-  36.78% {
+  35.81% {
     content: "Hosting";
   }
 
-  37.41%, 46.67% {
+  36.21%, 45.47% {
     content: "Hosting.";
   }
 
-  47.19% {
+  46.06% {
     content: "C";
   }
 
-  47.65% {
+  47.14% {
     content: "Co";
   }
 
-  48.73% {
+  47.33% {
     content: "Col";
   }
 
-  49.76% {
+  47.9% {
     content: "Coll";
   }
 
-  49.7% {
+  48.71% {
     content: "Colla";
   }
 
-  50.77% {
+  49.89% {
     content: "Collab";
   }
 
-  51.47% {
+  50.27% {
     content: "Collabo";
   }
 
-  52.09% {
+  51.51% {
     content: "Collabor";
   }
 
-  53.07% {
+  51.84% {
     content: "Collabora";
   }
 
-  54.09% {
+  52.85% {
     content: "Collaborat";
   }
 
-  53.99% {
+  52.74% {
     content: "Collaborati";
   }
 
-  55.33% {
+  53.93% {
     content: "Collaboratio";
   }
 
-  55.39% {
+  54.84% {
     content: "Collaboration";
   }
 
-  56.18%, 65.44% {
+  55.22%, 64.47% {
     content: "Collaboration.";
   }
 
-  66.24% {
+  64.68% {
     content: "S";
   }
 
-  66.87% {
+  66.29% {
     content: "Sc";
   }
 
-  67.85% {
+  66.42% {
     content: "Sca";
   }
 
-  68.57% {
+  67.05% {
     content: "Scaf";
   }
 
-  68.78% {
+  68.32% {
     content: "Scaff";
   }
 
-  69.76% {
+  69.07% {
     content: "Scaffo";
   }
 
-  70.65% {
+  69.42% {
     content: "Scaffol";
   }
 
-  71.35% {
+  70.33% {
     content: "Scaffold";
   }
 
-  71.56% {
+  70.28% {
     content: "Scaffoldi";
   }
 
-  72.33% {
+  71.87% {
     content: "Scaffoldin";
   }
 
-  73.04% {
+  71.68% {
     content: "Scaffolding";
   }
 
-  73.84%, 83.1% {
+  72.91%, 82.17% {
     content: "Scaffolding.";
   }
 
-  83.87% {
+  82.53% {
     content: "P";
   }
 
-  84.97% {
+  83.11% {
     content: "Pr";
   }
 
-  85.14% {
+  83.87% {
     content: "Pro";
   }
 
-  85.48% {
+  85.31% {
     content: "Proj";
   }
 
-  86.68% {
+  85.99% {
     content: "Proje";
   }
 
-  86.97% {
+  86.6% {
     content: "Projec";
   }
 
-  87.81% {
+  86.7% {
     content: "Project";
   }
 
-  88.8% {
+  87.62% {
     content: "Projecti";
   }
 
-  89.71% {
+  88.9% {
     content: "Projectif";
   }
 
-  90.12% {
+  88.71% {
     content: "Projectify";
   }
 
-  90.41%, 99.67% {
+  89.81%, 99.07% {
     content: "Projectify.";
   }
 }
@@ -4021,6 +4347,21 @@ html {
   }
 }
 
+.sprogress-primary::-moz-progress-bar {
+  border-radius: var(--rounded-box, 1rem);
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-p,oklch(var(--p)/var(--tw-bg-opacity)));
+}
+
+.sprogress-primary:indeterminate {
+  --progress-color: var(--fallback-p,oklch(var(--p)/1));
+}
+
+.sprogress-primary::-webkit-progress-value {
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-p,oklch(var(--p)/var(--tw-bg-opacity)));
+}
+
 .hover\:underline:hover {
   text-decoration-line: underline;
 }
@@ -4029,29 +4370,9 @@ html {
   .sm\:hidden {
     display: none;
   }
-
-  .sm\:w-full {
-    width: 100%;
-  }
 }
 
 @media (min-width: 768px) {
-  .md\:static {
-    position: static;
-  }
-
-  .md\:block {
-    display: block;
-  }
-
-  .md\:inline-block {
-    display: inline-block;
-  }
-
-  .md\:inline {
-    display: inline;
-  }
-
   .md\:flex {
     display: flex;
   }
@@ -4066,22 +4387,6 @@ html {
 }
 
 @media (min-width: 1024px) {
-  .lg\:static {
-    position: static;
-  }
-
-  .lg\:block {
-    display: block;
-  }
-
-  .lg\:inline-block {
-    display: inline-block;
-  }
-
-  .lg\:inline {
-    display: inline;
-  }
-
   .lg\:flex {
     display: flex;
   }
@@ -4092,10 +4397,6 @@ html {
 
   .lg\:w-2\/5 {
     width: 40%;
-  }
-
-  .lg\:w-full {
-    width: 100%;
   }
 
   .lg\:w-4\/6 {

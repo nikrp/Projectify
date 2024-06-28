@@ -14,23 +14,23 @@ export default function Sidebar() {
             console.log("Still logged in");
             setUserData(user);
           } else {
-            console.log("Not logged in")
-            const rToken = Cookies.get('nekothserfer');
-            if (rToken) {
-              signInWithCredential(auth, rToken).then((result) => {
-                console.log("Logged in:", auth.currentUser.displayName);
-                setUserData(result.user);
-              }).catch((e) => {
-                console.error("Error Signing In With Credential:", e);
-              });
-            }
+            // console.log("Not logged in")
+            // const rToken = Cookies.get('nekothserfer');
+            // if (rToken) {
+            //   signInWithCredential(auth, rToken).then((result) => {
+            //     console.log("Logged in:", auth.currentUser.displayName);
+            //     setUserData(result.user);
+            //   }).catch((e) => {
+            //     console.error("Error Signing In With Credential:", e);
+            //   });
+            // }
           }
         });
 
       }, []);
 
     return (
-        <div className={`w-64 px-10 py-5 md:w-1/4 lg:w-1/5 xl:w-1/6 min-h-screen border-r-2 border-gray-600 flex flex-col`} data-theme='dark'>
+        <div className={`w-64 px-10 py-5 md:w-1/4 lg:w-1/5 xl:w-1/6 min-h-screen bg-base-100 flex flex-col`} data-theme='dark'>
             <h1 className={`text-3xl mb-10 font-bold`}>Projectify</h1>
             <p className={`font-bold text-gray-400 mb-2`}>General</p>
             <button className={`btn btn-ghost justify-start text-base text-gray-300 w-full mb-1 px-2`}>Dashboard</button>
