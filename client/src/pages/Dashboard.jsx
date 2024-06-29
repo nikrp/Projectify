@@ -1,7 +1,7 @@
 import { FiClock } from "react-icons/fi";
 import { MdArrowRightAlt } from "react-icons/md";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa6";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Dashboard() {
     const projectContent = [
@@ -89,6 +89,8 @@ export default function Dashboard() {
 
     const [start, setStart] = useState(0);
     const [end, setEnd] = useState(projectContent.length > 5 ? 5 : projectContent.length);
+    const [currentMonthDays, setCurrentMonthDays] = useState(31);
+    const [startDay, setStartDay] = useState("col-span-0");
     
     function goBack() {
         setStart(cs => cs - 5);
@@ -99,6 +101,17 @@ export default function Dashboard() {
         setStart(cs => cs + 5);
         setEnd(ce => ce + 5 > projectContent.length ? projectContent.length : ce + 5);
     }
+
+    useEffect(() => {
+        const date = new Date();
+        const year = date.getFullYear();
+        const month = date.getMonth();
+        setCurrentMonthDays(() => daysInMonth(year, month));
+        const day = new Date(year + "-" + (month + 1) + "-01").getDay();
+        setStartDay("col-span-" + day);
+    }, []);
+    
+    const daysInMonth = (year, month) => new Date(year, month, 0).getDate();
     
     return (
         <div className={`flex-1 p-10 bg-base-300`}>
@@ -155,7 +168,103 @@ export default function Dashboard() {
                 </div>
                 <div className={`p-5 rounded-xl flex flex-col gap-3`}>
                     <p className={`text-2xl font-medium w-full flex items-center justify-between`}>Messages <button className={`btn btn-ghost flex items-center gap-2`}>View All <MdArrowRightAlt size={20} /></button></p>
-                    <div className={`p-5 rounded-xl bg-base-100`}></div>
+                    <div className={`p-5 rounded-xl bg-base-100 h-full`}>
+                        <div className={`flex items-center gap-3 mb-8`}>
+                            <div className="avatar">
+                                <div className="w-16 rounded-full ring-accent ring-offset-base-100 ring ring-offset-2">
+                                    <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                </div>
+                            </div>
+                            <div>
+                                <p className={`text-lg font-bold text-gray-300`}>Sandra Monkey</p>
+                                <p className={`text-base line-clamp-1 font-semibold`}>I wanted to ask a few questions about the Fresh Produce project. Free to talk?</p>
+                            </div>
+                        </div>
+                        <div className={`flex items-center gap-3 mb-8`}>
+                            <div className="avatar">
+                                <div className="w-16 rounded-full ring-accent ring-offset-base-100 ring ring-offset-2">
+                                    <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" />
+                                </div>
+                            </div>
+                            <div>
+                                <p className={`text-lg font-bold text-gray-300`}>John Doe</p>
+                                <p className={`text-base line-clamp-1 font-semibold`}>Hey there Spewing, how's it going? Free to meet aout Fresh Produce?</p>
+                            </div>
+                        </div>
+                        <div className={`flex items-center gap-3 mb-8`}>
+                            <div className="avatar">
+                                <div className="w-16 rounded-full ring-accent ring-offset-base-100 ring ring-offset-2">
+                                    <img src="https://img.daisyui.com/tailwind-css-component-profile-4@56w.png" />
+                                </div>
+                            </div>
+                            <div>
+                                <p className={`text-lg font-bold text-gray-300`}>Mary Chan</p>
+                                <p className={`text-base line-clamp-1 font-semibold`}>What is goody in da hoody buddy?</p>
+                            </div>
+                        </div>
+                        <div className={`flex items-center gap-3 mb-8`}>
+                            <div className="avatar">
+                                <div className="w-16 rounded-full ring-accent ring-offset-base-100 ring ring-offset-2">
+                                    <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                </div>
+                            </div>
+                            <div>
+                                <p className={`text-lg font-bold text-gray-300`}>Sandra Monkey</p>
+                                <p className={`text-base line-clamp-1 font-semibold`}>I wanted to ask a few questions about the Fresh Produce project. Free to talk?</p>
+                            </div>
+                        </div>
+                        <div className={`flex items-center gap-3`}>
+                            <div className="avatar">
+                                <div className="w-16 rounded-full ring-accent ring-offset-base-100 ring ring-offset-2">
+                                    <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" />
+                                </div>
+                            </div>
+                            <div>
+                                <p className={`text-lg font-bold text-gray-300`}>John Doe</p>
+                                <p className={`text-base line-clamp-1 font-semibold`}>Hey there Spewing, how's it going? Free to meet aout Fresh Produce?</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className={`p-5 rounded-xl flex items-center gap-3 flex-col`}>
+                    <p className={`text-2xl font-medium w-full flex items-center justify-between`}>Calendar <button className={`btn btn-ghost flex items-center gap-2 opacity-0 cursor-default`}>View All <MdArrowRightAlt size={20} /></button></p>
+                    <div className={`p-5 rounded-xl bg-base-100 w-full`}>
+                        <div className={`flex items-center w-11/12 mx-auto text-lg mb-5`}>
+                            <span className={`rounded-full cursor-pointer ml-3`}>
+                                <FaChevronLeft size={15} className={`m-2`} fill="white" />
+                            </span>
+                            <p className={`mr-2 ml-auto`}>June</p>
+                            <p className={`mr-auto`}>2024</p>
+                            <span className={`rounded-full cursor-pointer mr-3`}>
+                                <FaChevronRight size={15} className={`m-2`} fill="white" />
+                            </span>
+                        </div>
+                        <div className={`grid grid-cols-7 w-11/12 mx-auto`}>
+                            <p className={`text-center mb-2 font-medium`}>Su</p>
+                            <p className={`text-center mb-2 font-medium`}>Mo</p>
+                            <p className={`text-center mb-2 font-medium`}>Tu</p>
+                            <p className={`text-center mb-2 font-medium`}>We</p>
+                            <p className={`text-center mb-2 font-medium`}>Th</p>
+                            <p className={`text-center mb-2 font-medium`}>Fr</p>
+                            <p className={`text-center mb-2 font-medium`}>Sa</p>
+                            <div className={`grid grid-cols-subgrid ${startDay}`}>
+                                <p className={`col-start-1`}></p>
+                            </div>
+                            {"hi ".repeat(currentMonthDays - 1).trimEnd().split(" ").map((_, index) => {
+                                return (
+                                    <span className={`rounded-full w-fit mx-auto mb-1 hover:bg-gray-600 cursor-pointer transition-all duration-200 ease-in-out`}><p className={`text-center py-2 ${index < 9 ? `px-4` : `px-3`}`}>{index + 1}</p></span>
+                                )
+                            })}
+                        </div>
+                    </div>
+                </div>
+                <div className={`p-5 rounded-xl flex items-center gap-3 flex-col`}>
+                    <p className={`text-2xl font-medium w-full flex items-center justify-between`}>Tasks <button className={`btn btn-ghost flex items-center gap-2`}>View All <MdArrowRightAlt size={20} /></button></p>
+                    <div className={`p-5 rounded-xl bg-base-100 w-full`}></div>
+                </div>
+                <div className={`p-5 rounded-xl flex items-center gap-3 flex-col`}>
+                    <p className={`text-2xl font-medium w-full flex items-center justify-between`}>Teams <button className={`btn btn-ghost flex items-center gap-2`}>View All <MdArrowRightAlt size={20} /></button></p>
+                    <div className={`p-5 rounded-xl bg-base-100 w-full`}></div>
                 </div>
             </div>
         </div>
