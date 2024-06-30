@@ -3682,6 +3682,16 @@ html {
   margin-bottom: 1rem;
 }
 
+.my-0 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.my-0\.5 {
+  margin-top: 0.125rem;
+  margin-bottom: 0.125rem;
+}
+
 .mb-1 {
   margin-bottom: 0.25rem;
 }
@@ -3818,6 +3828,10 @@ html {
   height: 100vh;
 }
 
+.h-10 {
+  height: 2.5rem;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -3899,6 +3913,14 @@ html {
   width: 100%;
 }
 
+.w-10 {
+  width: 2.5rem;
+}
+
+.w-14 {
+  width: 3.5rem;
+}
+
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -3940,8 +3962,8 @@ html {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.grid-cols-4 {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+.grid-cols-5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
 .grid-cols-7 {
@@ -3956,8 +3978,8 @@ html {
   grid-template-columns: subgrid;
 }
 
-.grid-cols-5 {
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .flex-row {
@@ -4006,6 +4028,10 @@ html {
 
 .gap-5 {
   gap: 1.25rem;
+}
+
+.gap-1 {
+  gap: 0.25rem;
 }
 
 .space-x-3 > :not([hidden]) ~ :not([hidden]) {
@@ -4115,8 +4141,18 @@ html {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+.from-orange-400 {
+  --tw-gradient-from: #fb923c var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(251 146 60 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
 .to-\[\#111111\] {
   --tw-gradient-to: #111111 var(--tw-gradient-to-position);
+}
+
+.fill-red-400 {
+  fill: #f87171;
 }
 
 .p-1 {
@@ -4141,6 +4177,10 @@ html {
 
 .p-5 {
   padding: 1.25rem;
+}
+
+.p-0 {
+  padding: 0px;
 }
 
 .px-1 {
@@ -4418,259 +4458,259 @@ html {
     content: "Projectify.";
   }
 
-  0.36% {
+  0.43% {
     content: "P";
   }
 
-  1.34% {
+  1.49% {
     content: "Pr";
   }
 
-  1.7% {
+  2.49% {
     content: "Pro";
   }
 
-  2.93% {
+  2.3% {
     content: "Proj";
   }
 
-  3.78% {
+  3.67% {
     content: "Proje";
   }
 
-  3.77% {
+  3.79% {
     content: "Projec";
   }
 
-  5.02% {
+  4.8% {
     content: "Project";
   }
 
-  5.66% {
+  5.96% {
     content: "Projecti";
   }
 
-  5.9% {
+  5.8% {
     content: "Projectif";
   }
 
-  6.69% {
+  6.74% {
     content: "Projectify";
   }
 
-  8.07%, 17.33% {
+  7.3%, 16.56% {
     content: "Projectify.";
   }
 
-  18.22% {
+  17.02% {
     content: "S";
   }
 
-  18.85% {
+  17.71% {
     content: "St";
   }
 
-  19.51% {
+  18.19% {
     content: "Sto";
   }
 
-  19.83% {
+  19.15% {
     content: "Stor";
   }
 
-  20.88% {
+  19.75% {
     content: "Stora";
   }
 
-  21.18% {
+  21.04% {
     content: "Storag";
   }
 
-  21.84% {
+  20.94% {
     content: "Storage";
   }
 
-  22.62%, 31.88% {
+  21.82%, 31.08% {
     content: "Storage.";
   }
 
-  32.09% {
+  31.83% {
     content: "H";
   }
 
-  32.89% {
+  32.69% {
     content: "Ho";
   }
 
-  34.08% {
+  33.01% {
     content: "Hos";
   }
 
-  34.2% {
+  33.64% {
     content: "Host";
   }
 
-  35.01% {
+  34.34% {
     content: "Hosti";
   }
 
-  35.91% {
+  35.18% {
     content: "Hostin";
   }
 
-  37% {
+  36.38% {
     content: "Hosting";
   }
 
-  37.02%, 46.28% {
+  36.9%, 46.16% {
     content: "Hosting.";
   }
 
-  46.5% {
+  46.77% {
     content: "C";
   }
 
-  48.03% {
+  47.91% {
     content: "Co";
   }
 
-  48.8% {
+  48.14% {
     content: "Col";
   }
 
-  49.09% {
+  48.47% {
     content: "Coll";
   }
 
-  50.17% {
+  49.35% {
     content: "Colla";
   }
 
-  50.92% {
+  50.19% {
     content: "Collab";
   }
 
-  50.7% {
+  50.65% {
     content: "Collabo";
   }
 
-  52.31% {
+  51.6% {
     content: "Collabor";
   }
 
-  52.79% {
+  52.38% {
     content: "Collabora";
   }
 
-  52.91% {
+  53.57% {
     content: "Collaborat";
   }
 
-  53.84% {
+  53.86% {
     content: "Collaborati";
   }
 
-  55% {
+  54.42% {
     content: "Collaboratio";
   }
 
-  55.16% {
+  55.49% {
     content: "Collaboration";
   }
 
-  55.92%, 65.18% {
+  55.43%, 64.69% {
     content: "Collaboration.";
   }
 
-  66.18% {
+  65.5% {
     content: "S";
   }
 
-  66.62% {
+  65.95% {
     content: "Sc";
   }
 
-  67.27% {
+  66.9% {
     content: "Sca";
   }
 
-  67.93% {
+  67.85% {
     content: "Scaf";
   }
 
-  68.89% {
+  68.48% {
     content: "Scaff";
   }
 
-  69.84% {
+  69.2% {
     content: "Scaffo";
   }
 
-  70.12% {
+  69.28% {
     content: "Scaffol";
   }
 
-  71.06% {
+  70.46% {
     content: "Scaffold";
   }
 
-  71.13% {
+  70.96% {
     content: "Scaffoldi";
   }
 
-  71.98% {
+  71.2% {
     content: "Scaffoldin";
   }
 
-  73.03% {
+  72.76% {
     content: "Scaffolding";
   }
 
-  73.21%, 82.47% {
+  72.91%, 82.17% {
     content: "Scaffolding.";
   }
 
-  83.11% {
+  82.99% {
     content: "P";
   }
 
-  84.15% {
+  83.33% {
     content: "Pr";
   }
 
-  84.58% {
+  84.42% {
     content: "Pro";
   }
 
-  85.24% {
+  84.52% {
     content: "Proj";
   }
 
-  85.44% {
+  85.2% {
     content: "Proje";
   }
 
-  86.25% {
+  86.43% {
     content: "Projec";
   }
 
-  87.49% {
+  87% {
     content: "Project";
   }
 
-  87.65% {
+  87.73% {
     content: "Projecti";
   }
 
-  88.64% {
+  88.3% {
     content: "Projectif";
   }
 
-  89.19% {
+  89.26% {
     content: "Projectify";
   }
 
-  90.36%, 99.62% {
+  89.45%, 98.71% {
     content: "Projectify.";
   }
 }
@@ -4726,6 +4766,159 @@ html {
   animation: rotate 0.5s linear;
 }
 
+@supports (color: color-mix(in oklab, black, black)) {
+  .hover\:btn-active:hover {
+    background-color: color-mix(
+          in oklab,
+          oklch(var(--btn-color, var(--b3)) / var(--tw-bg-opacity, 1)) 90%,
+          black
+        );
+    border-color: color-mix(
+          in oklab,
+          oklch(var(--btn-color, var(--b3)) / var(--tw-border-opacity, 1)) 90%,
+          black
+        );
+  }
+
+  .hover\:btn-active:hover.btn-outline.btn-primary {
+    background-color: color-mix(in oklab, var(--fallback-p,oklch(var(--p)/1)) 90%, black);
+    border-color: color-mix(in oklab, var(--fallback-p,oklch(var(--p)/1)) 90%, black);
+  }
+
+  .hover\:btn-active:hover.btn-outline.btn-secondary {
+    background-color: color-mix(in oklab, var(--fallback-s,oklch(var(--s)/1)) 90%, black);
+    border-color: color-mix(in oklab, var(--fallback-s,oklch(var(--s)/1)) 90%, black);
+  }
+
+  .hover\:btn-active:hover.btn-outline.btn-accent {
+    background-color: color-mix(in oklab, var(--fallback-a,oklch(var(--a)/1)) 90%, black);
+    border-color: color-mix(in oklab, var(--fallback-a,oklch(var(--a)/1)) 90%, black);
+  }
+
+  .hover\:btn-active:hover.btn-outline.btn-success {
+    background-color: color-mix(in oklab, var(--fallback-su,oklch(var(--su)/1)) 90%, black);
+    border-color: color-mix(in oklab, var(--fallback-su,oklch(var(--su)/1)) 90%, black);
+  }
+
+  .hover\:btn-active:hover.btn-outline.btn-info {
+    background-color: color-mix(in oklab, var(--fallback-in,oklch(var(--in)/1)) 90%, black);
+    border-color: color-mix(in oklab, var(--fallback-in,oklch(var(--in)/1)) 90%, black);
+  }
+
+  .hover\:btn-active:hover.btn-outline.btn-warning {
+    background-color: color-mix(in oklab, var(--fallback-wa,oklch(var(--wa)/1)) 90%, black);
+    border-color: color-mix(in oklab, var(--fallback-wa,oklch(var(--wa)/1)) 90%, black);
+  }
+
+  .hover\:btn-active:hover.btn-outline.btn-error {
+    background-color: color-mix(in oklab, var(--fallback-er,oklch(var(--er)/1)) 90%, black);
+    border-color: color-mix(in oklab, var(--fallback-er,oklch(var(--er)/1)) 90%, black);
+  }
+}
+
+.hover\:btn-active:hover.btn.glass {
+  --glass-opacity: 25%;
+  --glass-border-opacity: 15%;
+}
+
+.hover\:btn-active:hover.btn-ghost {
+  border-color: transparent;
+  background-color: var(--fallback-bc,oklch(var(--bc)/0.2));
+}
+
+.hover\:btn-active:hover.btn-link {
+  border-color: transparent;
+  background-color: transparent;
+  text-decoration-line: underline;
+}
+
+.hover\:btn-active:hover.btn-outline {
+  --tw-border-opacity: 1;
+  border-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-border-opacity)));
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-bg-opacity)));
+  --tw-text-opacity: 1;
+  color: var(--fallback-b1,oklch(var(--b1)/var(--tw-text-opacity)));
+}
+
+.hover\:btn-active:hover.btn-outline.btn-primary {
+  --tw-text-opacity: 1;
+  color: var(--fallback-pc,oklch(var(--pc)/var(--tw-text-opacity)));
+}
+
+.hover\:btn-active:hover.btn-outline.btn-secondary {
+  --tw-text-opacity: 1;
+  color: var(--fallback-sc,oklch(var(--sc)/var(--tw-text-opacity)));
+}
+
+.hover\:btn-active:hover.btn-outline.btn-accent {
+  --tw-text-opacity: 1;
+  color: var(--fallback-ac,oklch(var(--ac)/var(--tw-text-opacity)));
+}
+
+.hover\:btn-active:hover.btn-outline.btn-success {
+  --tw-text-opacity: 1;
+  color: var(--fallback-suc,oklch(var(--suc)/var(--tw-text-opacity)));
+}
+
+.hover\:btn-active:hover.btn-outline.btn-info {
+  --tw-text-opacity: 1;
+  color: var(--fallback-inc,oklch(var(--inc)/var(--tw-text-opacity)));
+}
+
+.hover\:btn-active:hover.btn-outline.btn-warning {
+  --tw-text-opacity: 1;
+  color: var(--fallback-wac,oklch(var(--wac)/var(--tw-text-opacity)));
+}
+
+.hover\:btn-active:hover.btn-outline.btn-error {
+  --tw-text-opacity: 1;
+  color: var(--fallback-erc,oklch(var(--erc)/var(--tw-text-opacity)));
+}
+
+.hover\:btn-active:hover
+  .glass {
+  border: none;
+  -webkit-backdrop-filter: blur(var(--glass-blur, 40px));
+          backdrop-filter: blur(var(--glass-blur, 40px));
+  background-color: transparent;
+  background-image: linear-gradient(
+        135deg,
+        rgb(255 255 255 / var(--glass-opacity, 30%)) 0%,
+        rgb(0 0 0 / 0%) 100%
+      ),
+      linear-gradient(
+        var(--glass-reflex-degree, 100deg),
+        rgb(255 255 255 / var(--glass-reflex-opacity, 10%)) 25%,
+        rgb(0 0 0 / 0%) 25%
+      );
+  box-shadow: 0 0 0 1px rgb(255 255 255 / var(--glass-border-opacity, 10%)) inset,
+      0 0 0 2px rgb(0 0 0 / 5%);
+  text-shadow: 0 1px rgb(0 0 0 / var(--glass-text-shadow-opacity, 5%));
+}
+
+@media (hover: hover) {
+  .hover\:btn-active:hover.glass {
+    border: none;
+    -webkit-backdrop-filter: blur(var(--glass-blur, 40px));
+            backdrop-filter: blur(var(--glass-blur, 40px));
+    background-color: transparent;
+    background-image: linear-gradient(
+          135deg,
+          rgb(255 255 255 / var(--glass-opacity, 30%)) 0%,
+          rgb(0 0 0 / 0%) 100%
+        ),
+        linear-gradient(
+          var(--glass-reflex-degree, 100deg),
+          rgb(255 255 255 / var(--glass-reflex-opacity, 10%)) 25%,
+          rgb(0 0 0 / 0%) 25%
+        );
+    box-shadow: 0 0 0 1px rgb(255 255 255 / var(--glass-border-opacity, 10%)) inset,
+        0 0 0 2px rgb(0 0 0 / 5%);
+    text-shadow: 0 1px rgb(0 0 0 / var(--glass-text-shadow-opacity, 5%));
+  }
+}
+
 .hover\:scale-95:hover {
   --tw-scale-x: .95;
   --tw-scale-y: .95;
@@ -4745,6 +4938,21 @@ html {
 .hover\:bg-neutral:hover {
   --tw-bg-opacity: 1;
   background-color: var(--fallback-n,oklch(var(--n)/var(--tw-bg-opacity)));
+}
+
+.hover\:bg-gray-800:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-gray-900:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-\[\#111111\]:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(17 17 17 / var(--tw-bg-opacity));
 }
 
 .hover\:underline:hover {

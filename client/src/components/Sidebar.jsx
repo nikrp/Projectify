@@ -3,6 +3,10 @@ import { auth } from "../firebase";
 import { useLocation, useNavigate } from "react-router-dom";
 import { signInWithCredential } from "firebase/auth";
 import Cookies from 'js-cookie'
+import { IoIosSettings } from "react-icons/io";
+import { IoIosNotifications } from "react-icons/io";
+import { MdOutlineSupportAgent } from "react-icons/md";
+import { IoIosLogOut } from "react-icons/io";
 
 export default function Sidebar() {
     const navigate = useNavigate();
@@ -47,8 +51,12 @@ export default function Sidebar() {
                     <p className={`font-medium text-accent`}>Basic Plan</p>
                 </div>
             </div>
-            <button className={`btn btn-ghost justify-start text-base text-gray-300 w-full mb-1 px-2`}>Settings</button>
-            <button className={`btn text-red-400 text-base justify-start btn-ghost px-2`} onClick={() => {auth.signOut(); navigate('/', { replace: true })}}>Logout</button>
+            <div className={`grid grid-cols-4 gap-1 w-full mb-5 mt-2`}>
+              <button className={`btn bg-neutral w-12 h-5 rounded-full hover:btn-active p-0`}><IoIosSettings size={25} /></button>
+              <button className={`btn bg-neutral w-12 h-5 rounded-full hover:btn-active p-0`}><IoIosNotifications size={25} /></button>
+              <button className={`btn bg-neutral w-12 h-5 rounded-full hover:btn-active p-0`}><MdOutlineSupportAgent size={25} /></button>
+              <button onClick={() => {auth.signOut(); navigate('/', { replace: true })}} className={`btn bg-neutral w-12 h-5 rounded-full hover:btn-active p-0`}><IoIosLogOut size={25} className={`fill-red-400`} /></button>
+            </div>
         </div>
     )
 }
