@@ -3471,44 +3471,12 @@ html {
   grid-column: span 3 / span 3;
 }
 
-.col-span-6 {
-  grid-column: span 6 / span 6;
-}
-
-.col-span-1 {
-  grid-column: span 1 / span 1;
-}
-
-.col-start-3 {
-  grid-column-start: 3;
-}
-
-.col-start-2 {
-  grid-column-start: 2;
-}
-
 .col-start-1 {
   grid-column-start: 1;
 }
 
 .m-2 {
   margin: 0.5rem;
-}
-
-.m-1 {
-  margin: 0.25rem;
-}
-
-.m-0 {
-  margin: 0px;
-}
-
-.m-0\.5 {
-  margin: 0.125rem;
-}
-
-.m-px {
-  margin: 1px;
 }
 
 .mx-auto {
@@ -3548,6 +3516,10 @@ html {
 
 .mb-8 {
   margin-bottom: 2rem;
+}
+
+.ml-3 {
+  margin-left: 0.75rem;
 }
 
 .ml-5 {
@@ -3590,20 +3562,8 @@ html {
   margin-top: 1.5rem;
 }
 
-.mr-4 {
-  margin-right: 1rem;
-}
-
-.mr-8 {
-  margin-right: 2rem;
-}
-
-.mr-5 {
-  margin-right: 1.25rem;
-}
-
-.ml-3 {
-  margin-left: 0.75rem;
+.box-border {
+  box-sizing: border-box;
 }
 
 .line-clamp-1 {
@@ -3623,10 +3583,6 @@ html {
 
 .grid {
   display: grid;
-}
-
-.hidden {
-  display: none;
 }
 
 .h-24 {
@@ -3739,12 +3695,12 @@ html {
   table-layout: auto;
 }
 
-.cursor-pointer {
-  cursor: pointer;
-}
-
 .cursor-default {
   cursor: default;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 .list-inside {
@@ -3755,12 +3711,12 @@ html {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.grid-cols-9 {
-  grid-template-columns: repeat(9, minmax(0, 1fr));
-}
-
 .grid-cols-7 {
   grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.grid-cols-9 {
+  grid-template-columns: repeat(9, minmax(0, 1fr));
 }
 
 .grid-cols-subgrid {
@@ -3837,6 +3793,10 @@ html {
   border-width: 2px;
 }
 
+.border {
+  border-width: 1px;
+}
+
 .border-b-2 {
   border-bottom-width: 2px;
 }
@@ -3849,6 +3809,11 @@ html {
 .border-gray-600 {
   --tw-border-opacity: 1;
   border-color: rgb(75 85 99 / var(--tw-border-opacity));
+}
+
+.border-sky-300 {
+  --tw-border-opacity: 1;
+  border-color: rgb(125 211 252 / var(--tw-border-opacity));
 }
 
 .bg-base-100 {
@@ -3881,6 +3846,29 @@ html {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-accent {
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-a,oklch(var(--a)/var(--tw-bg-opacity)));
+}
+
+.bg-info {
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-in,oklch(var(--in)/var(--tw-bg-opacity)));
+}
+
+.bg-sky-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(125 211 252 / var(--tw-bg-opacity));
+}
+
+.bg-opacity-50 {
+  --tw-bg-opacity: 0.5;
+}
+
+.bg-opacity-80 {
+  --tw-bg-opacity: 0.8;
+}
+
 .p-10 {
   padding: 2.5rem;
 }
@@ -3895,14 +3883,6 @@ html {
 
 .p-5 {
   padding: 1.25rem;
-}
-
-.p-1 {
-  padding: 0.25rem;
-}
-
-.p-3 {
-  padding: 0.75rem;
 }
 
 .px-1 {
@@ -3953,11 +3933,6 @@ html {
 .py-5 {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
-}
-
-.py-3 {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
 }
 
 .text-left {
@@ -4094,6 +4069,16 @@ html {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.text-accent-content {
+  --tw-text-opacity: 1;
+  color: var(--fallback-ac,oklch(var(--ac)/var(--tw-text-opacity)));
+}
+
+.text-info-content {
+  --tw-text-opacity: 1;
+  color: var(--fallback-inc,oklch(var(--inc)/var(--tw-text-opacity)));
+}
+
 .opacity-0 {
   opacity: 0;
 }
@@ -4141,12 +4126,12 @@ html {
   transition-duration: 150ms;
 }
 
-.duration-300 {
-  transition-duration: 300ms;
-}
-
 .duration-200 {
   transition-duration: 200ms;
+}
+
+.duration-300 {
+  transition-duration: 300ms;
 }
 
 .ease-in-out {
@@ -4172,99 +4157,99 @@ html {
     content: "Projectify.";
   }
 
-  1% {
+  0.58% {
     content: "P";
   }
 
-  1.33% {
+  0.89% {
     content: "Pr";
   }
 
-  2.49% {
+  2.16% {
     content: "Pro";
   }
 
-  3.01% {
+  3.04% {
     content: "Proj";
   }
 
-  3.81% {
+  3.64% {
     content: "Proje";
   }
 
-  3.71% {
+  4.41% {
     content: "Projec";
   }
 
-  5.23% {
+  5.21% {
     content: "Project";
   }
 
-  5.65% {
+  5.16% {
     content: "Projecti";
   }
 
-  5.92% {
+  6.44% {
     content: "Projectif";
   }
 
-  7.23% {
+  6.84% {
     content: "Projectify";
   }
 
-  7.39%, 16.64% {
+  7.15%, 16.41% {
     content: "Projectify.";
   }
 
-  17.06% {
+  16.63% {
     content: "S";
   }
 
-  18.18% {
+  17.47% {
     content: "St";
   }
 
-  18.34% {
+  18.77% {
     content: "Sto";
   }
 
-  19.2% {
+  18.91% {
     content: "Stor";
   }
 
-  20.49% {
+  20.24% {
     content: "Stora";
   }
 
-  20.54% {
+  20.95% {
     content: "Storag";
   }
 
-  21.28% {
+  21.64% {
     content: "Storage";
   }
 
-  21.79%, 31.05% {
+  21.97%, 31.23% {
     content: "Storage.";
   }
 
-  31.9% {
+  32.21% {
     content: "H";
   }
 
-  32.15% {
+  32.91% {
     content: "Ho";
   }
 
-  33.25% {
+  33.04% {
     content: "Hos";
   }
 
-  33.9% {
+  33.89% {
     content: "Host";
   }
 
-  34.66% {
+  34.45% {
     content: "Hosti";
   }
 
@@ -4272,159 +4257,159 @@ html {
     content: "Hostin";
   }
 
-  35.98% {
+  36.35% {
     content: "Hosting";
   }
 
-  36.81%, 46.07% {
+  36.43%, 45.69% {
     content: "Hosting.";
   }
 
-  46.64% {
+  46.45% {
     content: "C";
   }
 
-  47.67% {
+  47.32% {
     content: "Co";
   }
 
-  47.8% {
+  47.83% {
     content: "Col";
   }
 
-  49.2% {
+  48.5% {
     content: "Coll";
   }
 
-  49.1% {
+  49.03% {
     content: "Colla";
   }
 
-  50.07% {
+  49.73% {
     content: "Collab";
   }
 
-  50.61% {
+  50.81% {
     content: "Collabo";
   }
 
-  51.45% {
+  51.54% {
     content: "Collabor";
   }
 
-  52.59% {
+  51.72% {
     content: "Collabora";
   }
 
-  52.84% {
+  52.86% {
     content: "Collaborat";
   }
 
-  54.03% {
+  53.05% {
     content: "Collaborati";
   }
 
-  53.9% {
+  54.2% {
     content: "Collaboratio";
   }
 
-  54.69% {
+  54.77% {
     content: "Collaboration";
   }
 
-  55.56%, 64.82% {
+  54.92%, 64.18% {
     content: "Collaboration.";
   }
 
-  65.15% {
+  64.8% {
     content: "S";
   }
 
-  66.52% {
+  65.51% {
     content: "Sc";
   }
 
-  66.74% {
+  66.31% {
     content: "Sca";
   }
 
-  67.63% {
+  66.71% {
     content: "Scaf";
   }
 
-  68.76% {
+  67.72% {
     content: "Scaff";
   }
 
-  69.49% {
+  67.87% {
     content: "Scaffo";
   }
 
-  69.57% {
+  68.76% {
     content: "Scaffol";
   }
 
-  70.33% {
+  70.15% {
     content: "Scaffold";
   }
 
-  70.75% {
+  70.51% {
     content: "Scaffoldi";
   }
 
-  71.58% {
+  70.87% {
     content: "Scaffoldin";
   }
 
-  72.64% {
+  71.41% {
     content: "Scaffolding";
   }
 
-  73.47%, 82.73% {
+  72.23%, 81.49% {
     content: "Scaffolding.";
   }
 
-  83.31% {
+  81.71% {
     content: "P";
   }
 
-  84.03% {
+  82.6% {
     content: "Pr";
   }
 
-  84.91% {
+  83.24% {
     content: "Pro";
   }
 
-  85.2% {
+  84.58% {
     content: "Proj";
   }
 
-  86.03% {
+  85.15% {
     content: "Proje";
   }
 
-  86.46% {
+  85.55% {
     content: "Projec";
   }
 
-  87.13% {
+  86.74% {
     content: "Project";
   }
 
-  88.68% {
+  87.01% {
     content: "Projecti";
   }
 
-  89.04% {
+  87.69% {
     content: "Projectif";
   }
 
-  89.41% {
+  87.97% {
     content: "Projectify";
   }
 
-  90.15%, 99.41% {
+  89.1%, 98.35% {
     content: "Projectify.";
   }
 }

@@ -91,6 +91,8 @@ export default function Dashboard() {
     const [end, setEnd] = useState(projectContent.length > 5 ? 5 : projectContent.length);
     const [currentMonthDays, setCurrentMonthDays] = useState(31);
     const [startDay, setStartDay] = useState("col-span-0");
+    const [dayOfMonth, setDayOfMonth] = useState(1);
+    const [selectedDayOfMonth, setSelectedDayOfMonth] = useState(1);
     
     function goBack() {
         setStart(cs => cs - 5);
@@ -109,9 +111,28 @@ export default function Dashboard() {
         setCurrentMonthDays(() => daysInMonth(year, month));
         const day = new Date(year + "-" + (month + 1) + "-01").getDay();
         setStartDay("col-span-" + day);
+        setDayOfMonth(date.getDate());
+        // setSelectedDayOfMonth(date.getDate());
+        setSelectedDayOfMonth(28);
     }, []);
     
     const daysInMonth = (year, month) => new Date(year, month, 0).getDate();
+
+    function getOrdinalSuffix(number) {
+        let j = number % 10;
+        let k = number % 100;
+    
+        if (j == 1 && k != 11) {
+            return number + "st";
+        }
+        if (j == 2 && k != 12) {
+            return number + "nd";
+        }
+        if (j == 3 && k != 13) {
+            return number + "rd";
+        }
+        return number + "th";
+    }
     
     return (
         <div className={`flex-1 p-10 bg-base-300`}>
@@ -233,8 +254,9 @@ export default function Dashboard() {
                             <span className={`rounded-full cursor-pointer ml-3`}>
                                 <FaChevronLeft size={15} className={`m-2`} fill="white" />
                             </span>
-                            <p className={`mr-2 ml-auto`}>June</p>
-                            <p className={`mr-auto`}>2024</p>
+                            <p className={`mr-1 ml-auto`}>{new Date().toLocaleString('default', { month: 'long' })}</p>
+                            <p className={`mr-1`}>{getOrdinalSuffix(selectedDayOfMonth)}</p>
+                            <p className={`mr-auto`}>{new Date().getFullYear()}</p>
                             <span className={`rounded-full cursor-pointer mr-3`}>
                                 <FaChevronRight size={15} className={`m-2`} fill="white" />
                             </span>
@@ -252,7 +274,7 @@ export default function Dashboard() {
                             </div>
                             {"hi ".repeat(currentMonthDays - 1).trimEnd().split(" ").map((_, index) => {
                                 return (
-                                    <span className={`rounded-full w-fit mx-auto mb-1 hover:bg-gray-600 cursor-pointer transition-all duration-200 ease-in-out`}><p className={`text-center py-2 ${index < 9 ? `px-4` : `px-3`}`}>{index + 1}</p></span>
+                                    <span onClick={() => setSelectedDayOfMonth(index + 1)} className={`rounded-full ${index + 1 === selectedDayOfMonth  ? `bg-accent text-accent-content` : index + 1 === dayOfMonth ? `border-sky-300 box-border border bg-opacity-80 hover:bg-gray-600` : 'hover:bg-gray-600'} w-fit mx-auto mb-1 cursor-pointer transition-all duration-200 ease-in-out`}><p className={`text-center py-2 ${index < 9 ? `px-4` : `px-3`}`}>{index + 1}</p></span>
                                 )
                             })}
                         </div>
