@@ -87,12 +87,79 @@ export default function Dashboard() {
         },
     ];
 
+    const months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+    ]
+
+    const tempTaskDates = [
+        "5-27-2024",
+        "5-26-2024",
+        "6-1-2024",
+        "7-8-2025",
+    ]
+
     const [start, setStart] = useState(0);
     const [end, setEnd] = useState(projectContent.length > 5 ? 5 : projectContent.length);
     const [currentMonthDays, setCurrentMonthDays] = useState(31);
-    const [startDay, setStartDay] = useState("col-span-0");
+    const [startDay, setStartDay] = useState(0);
     const [dayOfMonth, setDayOfMonth] = useState(1);
     const [selectedDayOfMonth, setSelectedDayOfMonth] = useState(1);
+    const [selectedMonth, setSelectedMonth] = useState(0);
+    const [selectedYear, setSelectedYear] = useState(2020);
+
+    useEffect(() => {
+        const date = new Date();
+        const year = date.getFullYear();
+        const month = date.getMonth();
+        setCurrentMonthDays(daysInMonth(year, month + 1));
+        const day = new Date(year, month, 1).getDay();
+        setStartDay(day);
+        setDayOfMonth(date.getDate());
+        setSelectedDayOfMonth(date.getDate());
+        setSelectedMonth(month);
+        setSelectedYear(year);
+    }, []);
+
+    useEffect(() => {
+        const year = selectedYear;
+        const month = selectedMonth;
+        setCurrentMonthDays(daysInMonth(year, month + 1));
+        const day = new Date(year, month, 1).getDay();
+        setStartDay(day);
+        setDayOfMonth(new Date().getMonth() === selectedMonth ? new Date().getDate() : 1);
+        setSelectedDayOfMonth(new Date().getMonth() === selectedMonth ? new Date().getDate() : 1);
+    }, [selectedMonth, selectedYear]);
+
+    const previousMonth = () => {
+        if (selectedMonth === 0) {
+            setSelectedYear((cy) => cy - 1);
+            setSelectedMonth(11);
+        } else {
+            setSelectedMonth((cm) => cm - 1);
+        }
+    };
+
+    const nextMonth = () => {
+        if (selectedMonth === 11) {
+            setSelectedYear((cy) => cy + 1);
+            setSelectedMonth(0);
+        } else {
+            setSelectedMonth((cm) => cm + 1);
+        }
+    };
+
+    const daysInMonth = (year, month) => new Date(year, month, 0).getDate();
     
     function goBack() {
         setStart(cs => cs - 5);
@@ -103,20 +170,6 @@ export default function Dashboard() {
         setStart(cs => cs + 5);
         setEnd(ce => ce + 5 > projectContent.length ? projectContent.length : ce + 5);
     }
-
-    useEffect(() => {
-        const date = new Date();
-        const year = date.getFullYear();
-        const month = date.getMonth();
-        setCurrentMonthDays(() => daysInMonth(year, month));
-        const day = new Date(year + "-" + (month + 1) + "-01").getDay();
-        setStartDay("col-span-" + day);
-        setDayOfMonth(date.getDate());
-        // setSelectedDayOfMonth(date.getDate());
-        setSelectedDayOfMonth(28);
-    }, []);
-    
-    const daysInMonth = (year, month) => new Date(year, month, 0).getDate();
 
     function getOrdinalSuffix(number) {
         let j = number % 10;
@@ -133,6 +186,19 @@ export default function Dashboard() {
         }
         return number + "th";
     }
+
+    const getStartDayClass = (day) => {
+        switch(day) {
+            case 0: return "col-start-0";
+            case 1: return "col-start-1";
+            case 2: return "col-start-2";
+            case 3: return "col-start-3";
+            case 4: return "col-start-4";
+            case 5: return "col-start-5";
+            case 6: return "col-start-6";
+            default: return "";
+        }
+    };
     
     return (
         <div className={`flex-1 p-10 bg-base-300`}>
@@ -251,13 +317,32 @@ export default function Dashboard() {
                     <p className={`text-2xl font-medium w-full flex items-center justify-between`}>Calendar <button className={`btn btn-ghost flex items-center gap-2 opacity-0 cursor-default`}>View All <MdArrowRightAlt size={20} /></button></p>
                     <div className={`p-5 rounded-xl bg-base-100 w-full`}>
                         <div className={`flex items-center w-11/12 mx-auto text-lg mb-5`}>
-                            <span className={`rounded-full cursor-pointer ml-3`}>
+                            <span onClick={previousMonth} className={`hover:bg-neutral transition-all duration-100 ease-in-out rounded-full cursor-pointer ml-3`}>
                                 <FaChevronLeft size={15} className={`m-2`} fill="white" />
                             </span>
-                            <p className={`mr-1 ml-auto`}>{new Date().toLocaleString('default', { month: 'long' })}</p>
-                            <p className={`mr-1`}>{getOrdinalSuffix(selectedDayOfMonth)}</p>
-                            <p className={`mr-auto`}>{new Date().getFullYear()}</p>
-                            <span className={`rounded-full cursor-pointer mr-3`}>
+                            <div className="dropdown ml-auto mr-auto">
+                                <div tabIndex={0} role="button" className="m-1 text-base cursor-pointer hover:bg-neutral rounded-lg p-1 px-2 transition-all duration-200 ease-in">
+                                    <div className={`flex items-center`}>
+                                        <p className={`mr-1`}>{months[selectedMonth]}</p>
+                                        <p className={`mr-1`}>{getOrdinalSuffix(selectedDayOfMonth)}</p>
+                                        <p>{selectedYear}</p>
+                                    </div>
+                                </div>
+                                <ul tabIndex={0} className="dropdown-content menu bg-neutral rounded-lg z-[1] w-fit p-2 shadow">
+                                    <div className={`flex items-center gap-3`}>
+                                    <select className="select select-bordered w-24">
+                                        {months.map((month, index) => {
+                                            return (
+                                                <option key={index} selected={months[selectedMonth] === month}>{month}</option>
+                                            )
+                                        })}
+                                    </select>
+                                    <input type="number" value={selectedDayOfMonth} className="input input-bordered w-20" />
+                                    <input type="number" value={selectedYear} className="input input-bordered w-20" min={1970} />
+                                    </div>
+                                </ul>
+                            </div>
+                            <span onClick={nextMonth} className={`hover:bg-neutral transition-all duration-100 ease-in-out rounded-full cursor-pointer mr-3`}>
                                 <FaChevronRight size={15} className={`m-2`} fill="white" />
                             </span>
                         </div>
@@ -269,12 +354,17 @@ export default function Dashboard() {
                             <p className={`text-center mb-2 font-medium`}>Th</p>
                             <p className={`text-center mb-2 font-medium`}>Fr</p>
                             <p className={`text-center mb-2 font-medium`}>Sa</p>
-                            <div className={`grid grid-cols-subgrid ${startDay}`}>
-                                <p className={`col-start-1`}></p>
+                            <div className={`grid grid-cols-subgrid ${getStartDayClass(startDay)}`}>
+                                <p className={``}></p>
                             </div>
-                            {"hi ".repeat(currentMonthDays - 1).trimEnd().split(" ").map((_, index) => {
+                            {"hi ".repeat(currentMonthDays).trimEnd().split(" ").map((_, index) => {
                                 return (
-                                    <span onClick={() => setSelectedDayOfMonth(index + 1)} className={`rounded-full ${index + 1 === selectedDayOfMonth  ? `bg-accent text-accent-content` : index + 1 === dayOfMonth ? `border-sky-300 box-border border bg-opacity-80 hover:bg-gray-600` : 'hover:bg-gray-600'} w-fit mx-auto mb-1 cursor-pointer transition-all duration-200 ease-in-out`}><p className={`text-center py-2 ${index < 9 ? `px-4` : `px-3`}`}>{index + 1}</p></span>
+                                    <span onClick={() => setSelectedDayOfMonth(index + 1)} className={`relative rounded-full ${index + 1 === selectedDayOfMonth  ? `bg-accent text-accent-content` : index + 1 === dayOfMonth && selectedMonth === new Date().getMonth() ? `border-sky-300 box-border border bg-opacity-80 hover:bg-gray-600` : 'hover:bg-gray-600'} w-fit mx-auto mb-1 cursor-pointer transition-all duration-200 ease-in-out`}>
+                                        <p className={`text-center py-2 ${index < 9 ? `px-4` : `px-3`}`}>{index + 1}</p>
+                                        {tempTaskDates.includes(selectedMonth.toString() + "-" + (index + 1).toString() + "-" + selectedYear.toString()) &&
+                                            <span className="badge badge-info absolute top-0 right-0 transform -translate-y-1/4 badge-xs"></span>
+                                        }
+                                    </span>
                                 )
                             })}
                         </div>
