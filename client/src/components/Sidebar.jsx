@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react"
 import { auth } from "../firebase";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { signInWithCredential } from "firebase/auth";
 import Cookies from 'js-cookie'
 
 export default function Sidebar() {
     const navigate = useNavigate();
     const [userData, setUserData] = useState(null);
+    const location = useLocation();
 
     useEffect(() => {
         auth.onAuthStateChanged(function(user) {
@@ -27,15 +28,17 @@ export default function Sidebar() {
           }
         });
 
+        console.log(location.pathname)
+
       }, []);
 
     return (
         <div className={`w-64 px-10 py-5 md:w-1/4 lg:w-1/5 xl:w-1/6 min-h-screen bg-base-100 flex flex-col`} data-theme='dark'>
             <h1 className={`text-3xl mb-10 font-bold`}>Projectify</h1>
             <p className={`font-bold text-gray-400 mb-2`}>General</p>
-            <button className={`btn btn-ghost justify-start text-base text-gray-300 w-full mb-1 px-2`}>Dashboard</button>
-            <button className={`btn btn-ghost justify-start text-base text-gray-300 w-full mb-1 px-2`}>Projects</button>
-            <button className={`btn btn-ghost justify-start text-base text-gray-300 w-full px-2`}>Teams</button>
+            <button onClick={() => navigate('/dashboard', { replace: true })} className={`btn btn-ghost ${location.pathname.substring(1).split("/")[0].trim() === "dashboard" && "btn-active"} justify-start text-base text-gray-300 w-full mb-1 px-2`}>Dashboard</button>
+            <button onClick={() => navigate('/projects', { replace: true })} className={`btn btn-ghost ${location.pathname.substring(1).split("/")[0].trim() === "projects" && "btn-active"} justify-start text-base text-gray-300 w-full mb-1 px-2`}>Projects</button>
+            <button onClick={() => navigate('/teams', { replace: true })} className={`btn btn-ghost ${location.pathname.substring(1).split("/")[0].trim() === "teams" && "btn-active"} justify-start text-base text-gray-300 w-full px-2`}>Teams</button>
             <p className={`font-bold text-gray-400 mb-2 mt-2`}>Account</p>
             <div className={`mb-1 p-4 flex items-center bg-base-200 rounded-xl w-fit`}>
                 {userData && <img className={`rounded-full w-12 mr-3`} src={userData.photoURL} alt="User" />}

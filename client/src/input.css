@@ -17,3 +17,16 @@
 .sprogress-primary {
   @apply progress-primary;
 }
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rotate {
+  animation: rotate 0.5s linear;
+}

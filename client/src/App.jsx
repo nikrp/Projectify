@@ -9,6 +9,8 @@ import { useEffect, useState } from "react";
 import { auth } from "./firebase";
 import { EmailAuthProvider, GoogleAuthProvider, signInWithCredential } from "firebase/auth";
 import Cookies from 'js-cookie';
+import Projects from "./pages/Projects";
+import Teams from "./pages/Teams";
 
 function App() {
   const location = useLocation();
@@ -51,6 +53,8 @@ function App() {
           <Route path="/login" element={<Login/>} />
           <Route path="/register" element={<Register/>} />
           <Route path="/dashboard" element={<Dashboard/>} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/teams" element={<Teams />} />
       </Routes>
     </div>
 

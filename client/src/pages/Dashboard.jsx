@@ -1,6 +1,7 @@
 import { FiClock } from "react-icons/fi";
 import { MdArrowRightAlt } from "react-icons/md";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa6";
+import { IoRefresh } from "react-icons/io5";
 import { useEffect, useState } from "react";
 
 export default function Dashboard() {
@@ -117,6 +118,8 @@ export default function Dashboard() {
     const [selectedDayOfMonth, setSelectedDayOfMonth] = useState(1);
     const [selectedMonth, setSelectedMonth] = useState(0);
     const [selectedYear, setSelectedYear] = useState(2020);
+    const [isRotating, setIsRotating] = useState(false);
+    const [selectedMonthD, setSelectedMonthD] = useState(months[selectedMonth]);
 
     useEffect(() => {
         const date = new Date();
@@ -139,7 +142,16 @@ export default function Dashboard() {
         setStartDay(day);
         setDayOfMonth(new Date().getMonth() === selectedMonth ? new Date().getDate() : 1);
         setSelectedDayOfMonth(new Date().getMonth() === selectedMonth ? new Date().getDate() : 1);
+        setSelectedMonthD(selectedMonth);
     }, [selectedMonth, selectedYear]);
+
+    const rotateRefresh = () => {
+        setIsRotating(true);
+
+        setTimeout(() => {
+            setIsRotating(false)
+        }, 500);
+    }
 
     const previousMonth = () => {
         if (selectedMonth === 0) {
@@ -202,6 +214,7 @@ export default function Dashboard() {
     
     return (
         <div className={`flex-1 p-10 bg-base-300`}>
+            <p className={`text-4xl font-bold text-center mb-5`}>Dashboard</p>
             <div className={`grid grid-cols-3 gap-0`}>
                 <div className={`col-span-2 p-5 rounded-xl flex items-center gap-3 flex-col`}>
                     <p className={`text-2xl font-medium w-full flex items-center justify-between`}>Project Progression <button className={`btn btn-ghost flex items-center gap-2`}>View All <MdArrowRightAlt size={20} /></button></p>
@@ -314,7 +327,7 @@ export default function Dashboard() {
                     </div>
                 </div>
                 <div className={`p-5 rounded-xl flex items-center gap-3 flex-col`}>
-                    <p className={`text-2xl font-medium w-full flex items-center justify-between`}>Calendar <button className={`btn btn-ghost flex items-center gap-2 opacity-0 cursor-default`}>View All <MdArrowRightAlt size={20} /></button></p>
+                    <p className={`text-2xl font-medium w-full flex items-center justify-between`}>Calendar <button className={`btn btn-ghost flex items-center gap-2 opacity-0 cursor-default`}>View All <MdArrowRightAlt size={20} /></button> <button onClick={rotateRefresh} className={`btn hover:bg-neutral rounded-full`}><IoRefresh size={20} className={`${isRotating && 'rotate'}`} /></button></p>
                     <div className={`p-5 rounded-xl bg-base-100 w-full`}>
                         <div className={`flex items-center w-11/12 mx-auto text-lg mb-5`}>
                             <span onClick={previousMonth} className={`hover:bg-neutral transition-all duration-100 ease-in-out rounded-full cursor-pointer ml-3`}>
@@ -330,10 +343,10 @@ export default function Dashboard() {
                                 </div>
                                 <ul tabIndex={0} className="dropdown-content menu bg-neutral rounded-lg z-[1] w-fit p-2 shadow">
                                     <div className={`flex items-center gap-3`}>
-                                    <select className="select select-bordered w-24">
+                                    <select value={selectedMonthD} onChange={(e) => setSelectedMonthD(e.target.value)} className="select select-bordered w-24">
                                         {months.map((month, index) => {
                                             return (
-                                                <option key={index} selected={months[selectedMonth] === month}>{month}</option>
+                                                <option value={month} key={index}>{month}</option>
                                             )
                                         })}
                                     </select>
