@@ -11,6 +11,7 @@ import { EmailAuthProvider, GoogleAuthProvider, signInWithCredential } from "fir
 import Cookies from 'js-cookie';
 import Projects from "./pages/Projects";
 import Teams from "./pages/Teams";
+import Generator from "./pages/Generator";
 
 function App() {
   const location = useLocation();
@@ -55,6 +56,7 @@ function App() {
           <Route path="/register" element={<Register/>} />
           <Route path="/dashboard" element={<Dashboard/>} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/projects/generator" element={<Generator />} />
           <Route path="/teams" element={<Teams />} />
       </Routes>
     </div>

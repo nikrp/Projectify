@@ -64,7 +64,7 @@ export default function Home() {
             <span className={`type-fruit text-accent text-8xl font-bold`}></span>
             <p className={`my-10 w-4/6 text-lg font-light fadeInLeft`}>
               At Projectify, we make it easy for developers to start new projects. With easy collaboration, storage, scaffolding, and more, developers
-              can easily work on projects and complete them on time for the public.
+              can easily work on projects and complete them on time for the public. React has never been easier.
             </p>
             <div>
               <button className={`btn btn-accent text-lg`} onClick={() => navigate('/register', { replace: true })}>Start Creating Today</button>
@@ -78,7 +78,7 @@ export default function Home() {
       <div className={``} id={`mission`}>
         <div className={`w-11/12 p-10 rounded-xl mx-auto`}>
           <h2 className={`text-6xl font-bold mb-10 text-center`}>Our Mission</h2>
-          <p className={`text-xl font-thin text-white leading-relaxed w-4/6 mx-auto tracking-wide text-center`}>At Projectify, we aim to support all JavaScript developers in their scaffolding, storing, hosting, and project management needs. Our extensive application tools allow teams to collaborate easily while acomplishing their project needs and checking statuses like a breeze.</p>
+          <p className={`text-xl font-thin text-white leading-relaxed w-4/6 mx-auto tracking-wide text-center`}>At Projectify, we aim to support all React developers in their scaffolding, storing, hosting, and project management needs. Our extensive application tools allow teams to collaborate easily while acomplishing their project needs and checking statuses like a breeze.</p>
         </div>
       </div>
       <div className={``} id={`pricing`}>
