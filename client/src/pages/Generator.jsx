@@ -1,5 +1,7 @@
 import { useState } from "react"
 import { MdArrowRight, MdArrowRightAlt } from "react-icons/md";
+import viteLogo from '../assets/vite_logo.png';
+import remixLogo from '../assets/remix-logo.png';
 
 export default function Generator() {
     const [currentStep, setCurrentStep] = useState(1);
@@ -32,6 +34,37 @@ export default function Generator() {
                             <p className={`font-bold`}>Select an Authentication Provider</p>
                         </div>
                     </div>
+                </div>
+                <div className={`mb-5 rounded-box border-2 border-neutral p-5`}>
+                    {currentStep === 1 && (
+                        <div className={`flex items-center gap-5`}>
+                            <label className="label cursor-pointer flex items-center flex-row gap-2 px-5 py-5 rounded-box border-2 border-neutral hover:bg-neutral">
+                                <input type="radio" name="radio-10" className="radio radio-sm" defaultChecked />
+                                <img src={viteLogo} alt="vite" className={`w-8 h-8`} />
+                                <p className={`font-bold text-lg text-white`}>Vite</p>
+                            </label>
+                            <label className="label cursor-pointer flex items-center flex-row gap-2 px-5 py-5 rounded-box border-2 border-neutral hover:bg-neutral">
+                                <input type="radio" name="radio-10" className="radio radio-sm" />
+                                <img src={remixLogo} alt="vite" className={`w-8 h-8`} />
+                                <p className={`font-bold text-lg text-white`}>Remix</p>
+                            </label>
+                            <label className="label cursor-pointer flex items-center flex-row gap-2 px-5 py-5 rounded-box border-2 border-neutral hover:bg-neutral">
+                                <input type="radio" name="radio-10" className="radio radio-sm" />
+                                <img src={viteLogo} alt="vite" className={`w-8 h-8`} />
+                                <p className={`font-bold text-lg text-white`}>Next.js</p>
+                            </label>
+                            <label className="label cursor-pointer flex items-center flex-row gap-2 px-5 py-5 rounded-box border-2 border-neutral hover:bg-neutral">
+                                <input type="radio" name="radio-10" className="radio radio-sm" />
+                                <img src={viteLogo} alt="vite" className={`w-8 h-8`} />
+                                <p className={`font-bold text-lg text-white`}>Create React App</p>
+                            </label>
+                            <label className="label cursor-pointer flex items-center flex-row gap-2 px-5 py-5 rounded-box border-2 border-neutral hover:bg-neutral">
+                                <input type="radio" name="radio-10" className="radio radio-sm" />
+                                <img src={viteLogo} alt="vite" className={`w-8 h-8`} />
+                                <p className={`font-bold text-lg text-white`}>Gatsby</p>
+                            </label>
+                        </div>
+                    )}
                 </div>
                 <div className={`w-full flex justify-end`}>
                     <button onClick={() => setCurrentStep((cS) => cS + 1)} className={`btn btn-outline flex items-center gap-3 border-neutral border-2`}>Next <MdArrowRightAlt size={25} /></button>
