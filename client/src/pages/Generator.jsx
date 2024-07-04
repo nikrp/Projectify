@@ -3,11 +3,11 @@ import { MdArrowRight, MdArrowRightAlt } from "react-icons/md";
 import viteLogo from '../assets/vite_logo.png';
 import remixLogo from '../assets/remix-logo.png';
 
-export default function Generator() {
+export default function Generator({ theme }) {
     const [currentStep, setCurrentStep] = useState(1);
 
     return (
-        <div className={`flex-1 p-10 bg-base-300`}>
+        <div className={`flex-1 p-10 bg-base-300`} data-theme={theme}>
             <div className={`w-9/12 rounded-box bg-base-100 p-5 mx-auto`}>
                 <div className={`w-full grid grid-cols-4 gap-5 mb-5`}>
                     <div className={`${currentStep === 1 ? 'border-white' : currentStep > 1 ? 'border-accent' : 'border-neutral'} flex items-center flex-row gap-3 rounded-box border-2 p-3`}>

@@ -6,7 +6,7 @@ import { auth, db } from '../firebase';
 import { useState } from "react";
 import Cookies from 'js-cookie';
 
-export default function Login() {
+export default function Login({ theme }) {
     const navigate = useNavigate();
     const [userData, setUserData] = useState({
         email: '',
@@ -57,7 +57,7 @@ export default function Login() {
     }
 
     return (
-        <div className={`h-screen flex justify-center items-center w-full`} data-theme="dark">
+        <div className={`h-screen flex justify-center items-center w-full`} data-theme={theme}>
             <button className={`btn btn-neutral fixed top-5 left-5`} onClick={() => navigate('/', { replace: true })}>←  Back</button>
             <div className="card bg-neutral text-neutral-content w-2/6 shadow-md">
                 <div className="card-body items-center text-center">

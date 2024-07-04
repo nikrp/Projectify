@@ -4,7 +4,7 @@ import { FaChevronRight, FaChevronLeft } from "react-icons/fa6";
 import { IoRefresh } from "react-icons/io5";
 import { useEffect, useState } from "react";
 
-export default function Dashboard() {
+export default function Dashboard({ theme }) {
     const projectContent = [
         {
             projectName: "Fresh Produce",
@@ -213,7 +213,7 @@ export default function Dashboard() {
     };
     
     return (
-        <div className={`flex-1 p-10 bg-base-300`}>
+        <div className={`flex-1 p-10 bg-base-300`} data-theme={theme}>
             <p className={`text-4xl font-bold text-center mb-5`}>Dashboard</p>
             <div className={`grid grid-cols-3 gap-0`}>
                 <div className={`col-span-2 p-5 rounded-xl flex items-center gap-3 flex-col`}>

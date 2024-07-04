@@ -2,11 +2,11 @@ import { FaRegPlusSquare } from "react-icons/fa";
 import { FaUserFriends } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
-export default function Projects() {
+export default function Projects({ theme }) {
     const navigate = useNavigate();
 
     return (
-        <div className={`flex-1 p-10 bg-base-300`}>
+        <div className={`flex-1 p-10 bg-base-300`} data-theme={theme}>
             <p className={`text-4xl font-bold text-center mb-5`}>Projects</p>
             <p className={`text-2xl font-semibold w-9/12 mx-auto mb-3 text-white`}>Start Working</p>
             <div className={`grid grid-cols-2 gap-4 w-9/12 mx-auto mb-8`}>

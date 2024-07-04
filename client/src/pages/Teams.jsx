@@ -2,9 +2,9 @@ import { FaRegPlusSquare } from "react-icons/fa";
 import { FaUserFriends } from "react-icons/fa";
 import { IoChatbubbles } from "react-icons/io5";
 
-export default function Teams() {
+export default function Teams({ theme }) {
     return (
-        <div className={`flex-1 p-10 bg-base-300`}>
+        <div className={`flex-1 p-10 bg-base-300`} data-theme={theme}>
             <p className={`text-4xl font-bold text-center mb-5`}>Teams</p>
             <p className={`text-2xl font-semibold w-9/12 mx-auto mb-3 text-white`}>Start Collaborating</p>
             <div className={`grid grid-cols-2 gap-4 w-9/12 mx-auto mb-8`}>

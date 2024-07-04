@@ -17,6 +17,7 @@ function App() {
   const location = useLocation();
   const [userData, setUserData] = useState(null);
   const navigate = useNavigate();
+  const [theme, setTheme] = useState('dark');
 
   useEffect(() => {
     auth.onAuthStateChanged(function(user) {
@@ -46,18 +47,22 @@ function App() {
       }
     });
   }, []);
+  
+  useEffect(() => {
+    console.log(theme);
+  }, [theme]);
 
   return (
     <div className={`flex`} data-theme='dark'>
-      {location.pathname.trim() !== "/" && location.pathname.trim() !== "/register" && location.pathname.trim() !== "/login" && <Sidebar />}
+      {location.pathname.trim() !== "/" && location.pathname.trim() !== "/register" && location.pathname.trim() !== "/login" && <Sidebar setTheme={setTheme} theme={theme} />}
       <Routes>
           <Route path="/" element={<Home/>} />
-          <Route path="/login" element={<Login/>} />
-          <Route path="/register" element={<Register/>} />
-          <Route path="/dashboard" element={<Dashboard/>} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/projects/generator" element={<Generator />} />
-          <Route path="/teams" element={<Teams />} />
+          <Route path="/login" element={<Login theme={theme}/>} />
+          <Route path="/register" element={<Register theme={theme}/>} />
+          <Route path="/dashboard" element={<Dashboard theme={theme}/>} />
+          <Route path="/projects" element={<Projects theme={theme} />} />
+          <Route path="/projects/generator" element={<Generator theme={theme} />} />
+          <Route path="/teams" element={<Teams theme={theme} />} />
       </Routes>
     </div>
 
